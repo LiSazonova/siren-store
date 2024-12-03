@@ -33,25 +33,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-  params,
 }: {
   children: React.ReactNode;
-  params: { lang: 'uk' | 'en' };
 }) {
   return (
-    <html lang={params.lang}>
+    <html lang="en">
       <head>
         <link rel="icon" href="/favicon.ico" />
-
-        <title>
-          {typeof metadata.title === 'string' ? metadata.title : ''}
-        </title>
-        <meta
-          name="description"
-          content={
-            typeof metadata.description === 'string' ? metadata.description : ''
-          }
-        />
+        <title>{String(metadata.title)}</title>
+        <meta name="description" content={String(metadata.description)} />
       </head>
       <body
         className={`${inter.variable} ${lora.variable} ${lobster.variable} ${kaushan.variable}`}
