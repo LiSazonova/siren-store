@@ -1,0 +1,15 @@
+.header {
+  @apply fixed w-full;
+}
+
+.container {
+  @apply mx-auto flex items-center justify-between px-5 py-6;
+}
+
+.logo {
+  @apply flex items-center;
+}
+
+.icons {
+  @apply flex items-center space-x-8;
+}

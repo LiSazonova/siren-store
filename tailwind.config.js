@@ -13,8 +13,12 @@ module.exports = {
     container: {
       center: true,
       padding: {
-        DEFAULT: '20px',
-        desktop: '0px',
+        DEFAULT: '20px', // Отступы для всех экранов
+      },
+      screens: {
+        sm: '320px', // Минимальная ширина для мобильных
+        md: '768px', // Для планшетов
+        lg: '1228px', // Для десктопов
       },
     },
   },

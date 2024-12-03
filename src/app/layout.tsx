@@ -1,3 +1,4 @@
+import Header from '@/components/Header/Header';
 import type { Metadata } from 'next';
 import { Inter, Lora, Lobster, Kaushan_Script } from 'next/font/google';
 import './globals.css';
@@ -40,12 +41,10 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="icon" href="/favicon.ico" />
-        <title>{String(metadata.title)}</title>
-        <meta name="description" content={String(metadata.description)} />
+        <title>Siren Store</title>
       </head>
-      <body
-        className={`${inter.variable} ${lora.variable} ${lobster.variable} ${kaushan.variable}`}
-      >
+      <body>
+        <Header />
         {children}
       </body>
     </html>
