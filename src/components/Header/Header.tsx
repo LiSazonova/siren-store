@@ -1,59 +1,66 @@
-import React from 'react';
-import Image from 'next/image';
+'use client';
+
+import React, { useState } from 'react';
 import Link from 'next/link';
+import Icon from '@/components/Icon/Icon';
 import styles from './header.module.css';
+import Image from 'next/image';
 
 const Header = () => {
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+
+  const handleSearchOpen = () => setIsSearchOpen(true);
+  const handleSearchClose = () => setIsSearchOpen(false);
+
   return (
     <header className={styles.header}>
       <div className={styles.container}>
-        {/* Логотип */}
-        <Link href="/">
-          <div className={styles.logo}>
-            <Image
-              src="/images/logo/logo.svg"
-              alt="Siren Store"
-              width={52}
-              height={78}
-            />
-          </div>
+        <Link href="/" className={styles.logo}>
+          <Image
+            src="/images/logo/logo.svg"
+            alt="Siren Store"
+            width={52}
+            height={78}
+          />
         </Link>
 
-        {/* Иконки */}
-        <div className={styles.icons}>
-          <button aria-label="Search">
-            <Image
-              src="/images/icons/search.svg"
-              alt="Search"
-              width={24}
-              height={24}
-            />
-          </button>
-          <button aria-label="Instagram">
-            <Image
-              src="/images/icons/inst.svg"
-              alt="Instagram"
-              width={24}
-              height={24}
-            />
-          </button>
-          <button aria-label="Cart">
-            <Image
-              src="/images/icons/basket.svg"
-              alt="Cart"
-              width={24}
-              height={24}
-            />
-          </button>
-          <button aria-label="Menu">
-            <Image
-              src="/images/icons/menu.svg"
-              alt="Menu"
-              width={24}
-              height={24}
-            />
-          </button>
-        </div>
+        {isSearchOpen ? (
+          <>
+            <div className={styles.searchBar}>
+              <input
+                type="text"
+                placeholder="Пошук"
+                className={styles.searchInput}
+              />
+              <Icon
+                name="search_grey"
+                className={styles.searchIcon}
+                size={20}
+                alt="Search Icon"
+              />
+            </div>
+
+            <button
+              onClick={handleSearchClose}
+              aria-label="Close Search"
+              className={styles.closeButton}
+            >
+              <Icon name="close" size={24} alt="Close Icon" />
+            </button>
+          </>
+        ) : (
+          <div className={styles.icons}>
+            <button onClick={handleSearchOpen} aria-label="Search Icon">
+              <Icon name="search" size={24} />
+            </button>
+            <button aria-label="Instagram">
+              <Icon name="menu" size={24} />
+            </button>
+            <button aria-label="Basket">
+              <Icon name="basket" size={24} />
+            </button>
+          </div>
+        )}
       </div>
     </header>
   );

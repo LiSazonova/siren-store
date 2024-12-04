@@ -1,15 +1,72 @@
 .header {
-  @apply fixed w-full;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px 24px;
 }
 
 .container {
-  @apply mx-auto flex items-center justify-between px-5 py-6;
+  display: flex;
+    align-items: center;
+    gap: 12px;
+    justify-content: space-between;
+    width: 320px;
+    margin: 0 auto;
 }
 
 .logo {
-  @apply flex items-center;
+  display: flex;
+  align-items: center;
+}
+
+.searchBar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 220px;
+  border: 1px solid var(--primary-color);
+  padding: 16px 18px;
+  position: relative;
+}
+
+.searchInput {
+  flex: 1;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--gray);
+  padding-right: 30px;
+} 
+
+.searchIcon {
+  position: absolute;
+  right: 18px;
+  width: 25px;
+  height: 24px;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
 }
 
 .icons {
-  @apply flex items-center space-x-8;
+  display: flex;
+  align-items: center;
+  gap: 32px;
 }
+
+/* .icon {
+  fill: var(--primary-color);
+  transition: fill 0.3s ease;
+}
+
+.icon:hover {
+  fill: var(--red-color);
+} */
+
