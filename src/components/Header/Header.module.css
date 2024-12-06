@@ -5,125 +5,49 @@
   padding: 20px 24px;
   background-color: var(--white-color);
   z-index: 10;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-}
-
-.menu {
-  display: none;
-}
-
-.menu-item {
-  margin-right: 20px;
-  font-size: 16px;
-  color: var(--gray-color);
-  text-decoration: none;
-}
-
-.icons {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.searchBar {
-  display: flex;
-  align-items: center;
-  border: 1px solid var(--primary-color);
-  padding: 10px 16px;
-  border-radius: 8px;
-}
-
-.searchInput {
-  flex: 1;
-  border: none;
-  outline: none;
-  background-color: transparent;
-  font-size: 16px;
-  color: var(--gray-color);
-}
-
-.searchIcon {
-  margin-left: 10px;
-}
-
-.closeButton {
-  margin-left: 16px;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.menuButton {
-  display: inline-block;
+  max-width: 320px;
+  margin: 0 auto;
 }
 
 .desktopOnly {
   display: none;
 }
 
-.tabletAndMobile {
-  display: inline-block;
-}
-
-.searchContainer {
-  display: none;
-}
-
-.searchActive {
+.mobileOnly {
   display: flex;
   align-items: center;
-  gap: 16px;
+  justify-content: space-between;
+  width: 100%;
+  gap: 12px;
 }
 
-/* Адаптивность: для планшетов */
+/* Tablet */
 @media (min-width: 768px) {
-  .menu {
-    display: none;
-  }
-
-  .tabletAndMobile {
-    display: inline-block;
-  }
-
-  .searchBar {
-    width: 100%;
-    max-width: 320px;
+  .container {
+    max-width: 728px;
   }
 }
 
-/* Адаптивность: для десктопов */
+/* Desktop */
 @media (min-width: 1228px) {
-  .menu {
-    display: flex;
-    align-items: center;
+  .container {
+    max-width: 1228px;
   }
 
   .desktopOnly {
     display: flex;
-    gap: 16px;
+    align-items: center;
+    justify-content: space-between;
+    width: 1228px;
   }
 
-  .tabletAndMobile {
-    display: none;
-  }
-
-  .searchBar {
-    display: flex;
-    max-width: 400px;
-  }
-
-  .icons {
+  .mobileOnly {
     display: none;
   }
 }

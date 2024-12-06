@@ -1,0 +1,12 @@
+.logo {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  margin-right: 12px;
+}
+
+@media (min-width: 1228px) {
+  .logo {
+    flex: 0;
+  }
+}
