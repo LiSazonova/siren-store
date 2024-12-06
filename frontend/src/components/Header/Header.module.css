@@ -1,0 +1,53 @@
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px 24px;
+  background-color: var(--white-color);
+  z-index: 10;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.desktopOnly {
+  display: none;
+}
+
+.mobileOnly {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 12px;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  .container {
+    max-width: 728px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1228px) {
+  .container {
+    max-width: 1228px;
+  }
+
+  .desktopOnly {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 1228px;
+  }
+
+  .mobileOnly {
+    display: none;
+  }
+}

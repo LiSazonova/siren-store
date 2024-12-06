@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "dresses",
+  "info": {
+    "singularName": "dress",
+    "pluralName": "dresses",
+    "displayName": "Dress",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "price": {
+      "type": "biginteger"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "image": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": ["images", "files", "videos", "audios"]
+    },
+    "sizes": {
+      "type": "json"
+    },
+    "addToCart": {
+      "type": "boolean"
+    },
+    "buyNow": {
+      "type": "boolean"
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": ["Moon Crystal", "Christmas Song"]
+    }
+  }
+}
