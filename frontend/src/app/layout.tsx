@@ -1,7 +1,7 @@
-import Header from '@/components/Header/Header';
 import type { Metadata } from 'next';
 import { Inter, Lora, Lobster, Kaushan_Script } from 'next/font/google';
 import './globals.css';
+import Header from 'src/components/Header/Header';
 
 const inter = Inter({
   subsets: ['latin'],

@@ -1,10 +1,11 @@
 import React from 'react';
+import Hero from 'src/components/Hero/Hero';
 
 const Home: React.FC = () => {
   return (
-    <div>
-      <main></main>
-    </div>
+    <main>
+      <Hero />
+    </main>
   );
 };
 

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import styles from '@/components/DesktopMenu/Desktop.module.css';
+import styles from './Desktop.module.css';
 
 const DesktopMenu: React.FC = () => {
   const pathname = usePathname();

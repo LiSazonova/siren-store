@@ -1,0 +1,107 @@
+.hero {
+    text-align: center;
+    padding: 24px 20px;
+    position: relative;
+}
+
+.hero__subtitle {
+    font-family: var(--font-lobster);
+    font-weight: 400;
+        font-size: 38px;
+}
+.hero__title {
+    font-family: var(--font-lora);
+    font-weight: 400;
+        font-size: 40px;
+        text-transform: uppercase;
+        color: var(--black-color);
+        margin-top: -25px;
+        margin-bottom: -25px;
+}
+
+.hero__subtitle_bottom {
+    font-family: var(--font-kaushan);
+font-weight: 400;
+    font-size: 28px;
+    color: var(--black-color);
+    margin-bottom: 24px;
+}
+
+.hero__buyNow {
+    font-weight: 400;
+        font-size: 24px;
+        line-height: 0.83333;
+        text-transform: uppercase;
+        padding: 19px 68px;
+        border: none;
+        background-color: var(--black-color);
+        color: var(--white-color);
+
+}
+
+.hero__decorContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.hero__decorBlock_left {
+    text-align: left;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+}
+
+.hero__decorBlock_right{
+text-align: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin-left: -50px;
+}
+
+.hero__decorImage_left {
+    width: 122px;
+    height: 340px;
+    margin-left: -20px;
+}
+
+.hero__decorImage_right {
+    width: 150px;
+    height: 203px;
+}
+
+.hero__text {
+    font-weight: 400;
+        font-size: 18px;
+}
+
+.hero__text_left {
+    font-weight: 400;
+        font-size: 18px;
+    width: 157px;
+}
+
+.hero__text_right{
+    font-weight: 400;
+        font-size: 18px;
+    width: 210px;
+}
+
+/* Адаптивность */
+@media (min-width: 768px) {
+    .hero__decorContainer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero__decorBlock {
+        margin-bottom: 1rem;
+    }
+}
+
+@media (min-width: 1228px) {
+    .hero__decorContainer {
+        justify-content: space-between;
+    }
+}

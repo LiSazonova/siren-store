@@ -4,6 +4,9 @@
     "plugin:tailwindcss/recommended",
     "plugin:prettier/recommended"
   ],
+  "parserOptions": {
+    "requireConfigFile": false
+  },
   "plugins": ["tailwindcss", "prettier"],
   "rules": {
     "prettier/prettier": "error",
