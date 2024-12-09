@@ -26,18 +26,20 @@ const Header: React.FC = () => {
         </div>
         <div className={styles.mobileOnly}>
           <Logo />
-          <SearchBar
-            isDesktop={false}
-            isSearchOpen={isSearchOpen}
-            onOpen={handleSearchOpen}
-            onClose={handleSearchClose}
-          />
-          {!isSearchOpen && (
-            <>
-              <Icons />
-              <MobileMenu />
-            </>
-          )}
+          <div className={styles.mobileNav}>
+            <SearchBar
+              isDesktop={false}
+              isSearchOpen={isSearchOpen}
+              onOpen={handleSearchOpen}
+              onClose={handleSearchClose}
+            />
+            {!isSearchOpen && (
+              <>
+                <Icons />
+                <MobileMenu />
+              </>
+            )}
+          </div>
         </div>
       </div>
     </header>

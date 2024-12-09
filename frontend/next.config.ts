@@ -3,7 +3,14 @@ import type { NextConfig } from 'next';
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['localhost'], // Добавьте сюда хосты, откуда вы загружаете изображения
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'https://siren-store.onrender.com',
+        port: '',
+        pathname: '/uploads/**',
+      },
+    ],
   },
 };
 
