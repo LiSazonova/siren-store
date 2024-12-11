@@ -1,196 +1,190 @@
 .hero {
-    text-align: center;
-    padding: 24px 0;
-    position: relative;
+  text-align: center;
+  padding: 24px 0;
+  position: relative;
 }
 
 .container {
-    max-width: 320px;
-    margin: 0 auto;
+  max-width: 320px;
+  margin: 0 auto;
 }
 
 .hero__subtitle {
-    font-family: var(--font-lobster);
-    font-weight: 400;
-    font-size: 38px;
+  font-family: var(--font-lobster);
+  font-weight: 400;
+  font-size: 38px;
 }
 
 .hero__title {
-    font-family: var(--font-lora);
-    font-weight: 400;
-    font-size: 40px;
-    text-transform: uppercase;
-    color: var(--black-color);
-    margin-top: -25px;
-    margin-bottom: -25px;
+  font-family: var(--font-lora);
+  font-weight: 400;
+  font-size: 40px;
+  text-transform: uppercase;
+  color: var(--black-color);
+  margin-top: -25px;
+  margin-bottom: -25px;
 }
 
 .hero__subtitle_bottom {
-    font-family: var(--font-kaushan);
-    font-weight: 400;
-    font-size: 28px;
-    color: var(--black-color);
-    margin-bottom: 24px;
+  font-family: var(--font-kaushan);
+  font-weight: 400;
+  font-size: 28px;
+  color: var(--black-color);
+  margin-bottom: 24px;
 }
 
 .hero__textContainer {
-    display: none;
+  display: none;
 }
 
 .hero__buyNow {
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 0.83333;
-    text-transform: uppercase;
-    padding: 19px 68px;
-    border: none;
-    background-color: var(--black-color);
-    color: var(--white-color);
-
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 0.83333;
+  text-transform: uppercase;
+  padding: 19px 68px;
+  border: none;
+  background-color: var(--black-color);
+  color: var(--white-color);
 }
 
 .hero__decorContainer {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .hero__decorBlock_left {
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .hero__decorBlock_right {
-    text-align: right;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-end;
-    margin-left: -50px;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin-left: -50px;
 }
 
 .hero__decorImage_left {
-    width: 122px;
-    height: 340px;
-    margin-left: -20px;
+  width: 122px;
+  height: 340px;
+  margin-left: -20px;
 }
 
 .hero__decorImage_right {
-    width: 150px;
-    height: 203px;
+  width: 150px;
+  height: 203px;
 }
 
 .hero__text {
-    font-weight: 400;
-    font-size: 18px;
+  font-weight: 400;
+  font-size: 18px;
 }
 
 .hero__text_left {
-    font-weight: 400;
-    font-size: 18px;
-    width: 157px;
+  font-weight: 400;
+  font-size: 18px;
+  width: 157px;
 }
 
 .hero__text_right {
-    font-weight: 400;
-    font-size: 18px;
-    width: 210px;
+  font-weight: 400;
+  font-size: 18px;
+  width: 210px;
 }
 
-/* Адаптивность */
 @media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
 
-    .container {
-        max-width: 768px;
-    }
+  .hero__subtitle_bottom {
+    margin-bottom: 16px;
+  }
 
-    .hero__subtitle_bottom {
-        margin-bottom: 16px;
-    }
+  .hero__textContainer {
+    display: flex;
+    justify-content: space-between;
+  }
 
-    .hero__textContainer {
-        display: flex;
-        justify-content: space-between;
-    }
+  .hero__decorContainer {
+    display: flex;
+    flex-direction: row;
+  }
 
-    .hero__decorContainer {
-        display: flex;
-        flex-direction: row;
-        /* margin-top: -120px; */
-    }
+  .hero__textContainer {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
 
-    .hero__textContainer {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 16px;
-    }
+  .hero__subtext_left,
+  .hero__subtext_right {
+    font-weight: 400;
+    font-size: 18px;
+  }
 
-    .hero__subtext_left,
-    .hero__subtext_right {
-        font-weight: 400;
-        font-size: 18px;
-    }
+  .hero__subtext_left {
+    width: 155px;
+    text-align: left;
+  }
 
-    .hero__subtext_left {
-        width: 155px;
-        text-align: left;
-    }
+  .hero__subtext_right {
+    width: 210px;
+    text-align: right;
+  }
 
-    .hero__subtext_right {
-        width: 210px;
-        text-align: right;
-    }
+  .hero__text_left,
+  .hero__text_right {
+    display: none;
+  }
 
-    .hero__text_left,
-    .hero__text_right {
-        display: none;
-    }
+  .hero__decorBlock_left {
+    margin-top: -120px;
+  }
 
-    .hero__decorBlock_left {
-        margin-top: -120px;
-    }
-
-    .hero__decorBlock_right {
-        justify-content: flex-start;
-        align-items: flex-start;
-        margin-top: -60px;
-    }
+  .hero__decorBlock_right {
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-top: -60px;
+  }
 }
 
 @media (min-width: 1228px) {
+  .container {
+    max-width: 1228px;
+  }
 
-    .container {
-        max-width: 1228px;
-    }
+  .hero__subtitle_bottom {
+    margin-bottom: 28px;
+  }
 
-    .hero__subtitle_bottom {
-        margin-bottom: 28px;
-    }
+  .hero__decorContainer {
+    justify-content: space-between;
+  }
 
-    .hero__decorContainer {
-        justify-content: space-between;
-    }
+  .hero__decorImage_left {
+    width: 188px;
+    height: 443px;
+    position: absolute;
+    top: 130px;
+    right: calc(50% - -440px);
+  }
 
-    
-    .hero__decorImage_left {
-        width: 188px;
-        height: 443px;
-        position: absolute;
-            top: 130px;
-            left: 0px;
-    }
+  .hero__decorImage_right {
+    position: absolute;
+    top: 280px;
+    left: calc(50% - -440px);
+    width: 184px;
+    height: 253px;
+  }
 
-    .hero__decorImage_right {
-        position: absolute;
-            top: 280px;
-            right: 0px;
-            width: 184px;
-            height: 253px;
-    }
-
-    .hero__subtext_left,
-    .hero__subtext_right {
-        margin-top: -120px;
-    }
+  .hero__subtext_left,
+  .hero__subtext_right {
+    margin-top: -120px;
+  }
 }

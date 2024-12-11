@@ -64,14 +64,12 @@
   color: var(--black-color);
 }
 
-/* Tablet */
 @media (min-width: 768px) {
   .mobileMenuContainer {
     max-width: 728px;
   }
 }
 
-/* Desktop */
 @media (min-width: 1228px) {
   .mobileMenu {
     display: none;

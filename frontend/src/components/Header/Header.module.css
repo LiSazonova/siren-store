@@ -25,18 +25,16 @@
   gap: 12px;
 }
 
-.mobileNav{
+.mobileNav {
   display: flex;
 }
 
-/* Tablet */
 @media (min-width: 768px) {
   .container {
     max-width: 728px;
   }
 }
 
-/* Desktop */
 @media (min-width: 1228px) {
   .container {
     max-width: 1228px;
