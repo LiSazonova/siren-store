@@ -27,7 +27,8 @@ const SearchBar: React.FC<SearchBarProps> = ({
           <Icon
             name="search_grey"
             className={styles.searchIcon}
-            size={20}
+            width={25}
+            height={24}
             alt="Search Icon"
           />
         </div>
@@ -42,7 +43,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
         aria-label="Search Icon"
         className={styles.searchButton}
       >
-        <Icon name="search" size={24} />
+        <Icon name="search" width={25} height={24} alt="Search Icon" />
       </button>
     );
   } else {
@@ -57,7 +58,8 @@ const SearchBar: React.FC<SearchBarProps> = ({
           <Icon
             name="search_grey"
             className={styles.searchIcon}
-            size={20}
+            width={25}
+            height={24}
             alt="Search Icon"
           />
         </div>
@@ -66,7 +68,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
           aria-label="Close Search"
           className={styles.closeButton}
         >
-          <Icon name="close" size={24} alt="Close Icon" />
+          <Icon name="close" width={25} height={24} alt="Close Icon" />
         </button>
       </div>
     );

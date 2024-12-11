@@ -100,7 +100,6 @@
   width: 210px;
 }
 
-/* Адаптивность */
 @media (min-width: 768px) {
   .Hero_container__KML1d {
     max-width: 768px;
@@ -118,7 +117,6 @@
   .Hero_hero__decorContainer__bqgDq {
     display: flex;
     flex-direction: row;
-    /* margin-top: -120px; */
   }
 
   .Hero_hero__textContainer__bZ3_e {

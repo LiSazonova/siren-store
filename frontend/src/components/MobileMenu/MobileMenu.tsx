@@ -27,7 +27,11 @@ const MobileMenu: React.FC = () => {
         aria-label="Menu"
         className={styles.menuButton}
       >
-        <Icon name={isMobileMenuOpen ? 'close' : 'menu'} size={24} />
+        <Icon
+          name={isMobileMenuOpen ? 'close' : 'menu'}
+          width={24}
+          height={24}
+        />
       </button>
 
       <nav

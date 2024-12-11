@@ -55,7 +55,7 @@ const Slider: React.FC = () => {
         aria-label="Previous slide"
         className={`${styles.slider__arrow} ${styles.slider__arrowLeft}`}
       >
-        <Icon name="arrow_left" size={38} />
+        <Icon name="arrow_left" width={14} height={38} />
       </button>
 
       <div className={styles.slider__container}>
@@ -89,7 +89,7 @@ const Slider: React.FC = () => {
         aria-label="Next slide"
         className={`${styles.slider__arrow} ${styles.slider__arrowRight}`}
       >
-        <Icon name="arrow_right" size={38} />
+        <Icon name="arrow_right" width={14} height={38} />
       </button>
     </div>
   );
