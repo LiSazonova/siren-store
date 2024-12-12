@@ -4,12 +4,21 @@
     "plugin:tailwindcss/recommended",
     "plugin:prettier/recommended"
   ],
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "requireConfigFile": false
+    "project": "./tsconfig.json",
+    "sourceType": "module",
+    "ecmaVersion": 2020
   },
-  "plugins": ["tailwindcss", "prettier"],
+  "plugins": ["@typescript-eslint", "tailwindcss", "prettier"],
   "rules": {
     "prettier/prettier": "error",
     "tailwindcss/no-custom-classname": "off"
-  }
+  },
+  "overrides": [
+    {
+      "files": ["**/*.js", "**/*.jsx"],
+      "parser": "babel-eslint"
+    }
+  ]
 }

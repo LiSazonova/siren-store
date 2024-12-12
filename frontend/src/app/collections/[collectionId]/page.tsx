@@ -15,13 +15,13 @@ const mockCollections: Collection[] = [
     id: 'moon_crystal',
     title: 'MOON CRYSTAL',
     description: 'Описание коллекции MOON CRYSTAL.',
-    image: '/images/moon_crystal.jpg',
+    image: '/images/products/moon_crystal.jpg',
   },
   {
     id: 'christmas_song',
     title: 'CHRISTMAS SONG',
     description: 'Описание коллекции CHRISTMAS SONG.',
-    image: '/images/christmas_song.jpg',
+    image: '/images/products/christmas_song.jpg',
   },
 ];
 
@@ -31,11 +31,13 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function CollectionPage({
-  params,
-}: {
-  params: { collectionId: string };
-}) {
+interface MyCollectionPageProps {
+  params: {
+    collectionId: string;
+  };
+}
+
+const CollectionPage: React.FC<MyCollectionPageProps> = ({ params }) => {
   const { collectionId } = params;
 
   const collection = mockCollections.find((col) => col.id === collectionId);
@@ -57,4 +59,6 @@ export default function CollectionPage({
       <p className={styles.description}>{collection.description}</p>
     </main>
   );
-}
+};
+
+export default CollectionPage;
