@@ -1,7 +1,10 @@
 import type { Metadata } from 'next';
 import { Inter, Lora, Lobster, Kaushan_Script } from 'next/font/google';
 import './globals.css';
-import Header from 'src/components/Header/Header';
+import Header from '@/components/Header/Header';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import ClientProviders from '@/components/ClientProviders/ClientProviders';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -37,6 +40,11 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const clientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID ?? '';
+
+  if (!clientId) {
+    console.error('Google Client ID is missing. Check your .env file.');
+  }
   return (
     <html lang="uk">
       <head>
@@ -46,8 +54,11 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${lora.variable} ${lobster.variable} ${kaushan.variable}`}
       >
-        <Header />
-        {children}
+        <ClientProviders>
+          <Header />
+          {children}
+          <ToastContainer />
+        </ClientProviders>
       </body>
     </html>
   );

@@ -1,6 +1,5 @@
 export interface ImageAttributes {
   url: string;
-  // Другие поля
 }
 
 export interface ImageData {
@@ -15,7 +14,6 @@ export interface ProductAttributes {
   image: {
     data: ImageData;
   };
-  // Другие поля
 }
 
 export interface Product {

@@ -1,14 +1,19 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import React, { useState, useContext, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import styles from './MobileMenu.module.css';
 import { usePathname } from 'next/navigation';
 import Icon from '../Icon/Icon';
+import { AuthContext } from '@/context/AuthContext';
+import { useRouter } from 'next/navigation';
 
 const MobileMenu: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const { user, logout } = useContext(AuthContext);
+  const router = useRouter();
+  const menuRef = useRef<HTMLDivElement>(null);
 
   const handleMobileMenuToggle = (): void => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -16,8 +21,26 @@ const MobileMenu: React.FC = () => {
 
   const isActive = (path: string) => pathname === path;
 
+  const handleLogout = () => {
+    logout();
+    setIsMobileMenuOpen(false);
+    router.push('/');
+  };
+
   useEffect(() => {
-    document.body.style.overflow = isMobileMenuOpen ? 'hidden' : '';
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+    if (isMobileMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
   }, [isMobileMenuOpen]);
 
   return (
@@ -31,49 +54,59 @@ const MobileMenu: React.FC = () => {
           name={isMobileMenuOpen ? 'close' : 'menu'}
           width={24}
           height={24}
+          alt={isMobileMenuOpen ? 'Close Menu' : 'Open Menu'}
         />
       </button>
 
       <nav
         className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.mobileMenuOpen : ''}`}
+        ref={menuRef}
       >
         <div className={styles.mobileMenuContainer}>
           <Link
             href="/"
             className={`${styles.mobileMenuItem} ${isActive('/') ? styles.active : ''}`}
-            onClick={handleMobileMenuToggle}
+            onClick={() => setIsMobileMenuOpen(false)}
           >
             Головна
           </Link>
           <Link
-            href="/about-us"
-            className={`${styles.mobileMenuItem} ${isActive('/about-us') ? styles.active : ''}`}
-            onClick={handleMobileMenuToggle}
-          >
-            Про нас
-          </Link>
-          <Link
             href="/collections"
             className={`${styles.mobileMenuItem} ${isActive('/collections') ? styles.active : ''}`}
-            onClick={handleMobileMenuToggle}
+            onClick={() => setIsMobileMenuOpen(false)}
           >
             Колекції
           </Link>
+          <Link
+            href="/about-us"
+            className={`${styles.mobileMenuItem} ${isActive('/about-us') ? styles.active : ''}`}
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            Про нас
+          </Link>
           <div className={`${styles.mobileMenuItem} ${styles.authLinks}`}>
-            <Link
-              href="/login"
-              onClick={handleMobileMenuToggle}
-              className={styles.authLink}
-            >
-              Вхід
-            </Link>
-            <Link
-              href="/register"
-              onClick={handleMobileMenuToggle}
-              className={styles.authLink}
-            >
-              Регістрація
-            </Link>
+            {user ? (
+              <button onClick={handleLogout} className={styles.authButton}>
+                Вийти
+              </button>
+            ) : (
+              <>
+                <Link
+                  href="/auth/login"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={styles.authLink}
+                >
+                  Вхід
+                </Link>
+                <Link
+                  href="/auth/register"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={styles.authLink}
+                >
+                  Реєстрація
+                </Link>
+              </>
+            )}
           </div>
         </div>
       </nav>

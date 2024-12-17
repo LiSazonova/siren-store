@@ -1,21 +1,24 @@
-import axios, { AxiosResponse } from 'axios';
-import { ApiResponse, Product } from '../../types/product';
+import axios from 'axios';
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL;
+const API_URL =
+  process.env.NEXT_PUBLIC_API_URL || 'https://siren-store.onrender.com';
 
-export const getProducts = async (): Promise<Product[]> => {
-  try {
-    const response: AxiosResponse<ApiResponse> = await axios.get<ApiResponse>(
-      `${API_URL}/dresses?populate=image`
-    );
-    console.log('Data fetched:', response.data.data);
-    return response.data.data;
-  } catch (error) {
-    if (axios.isAxiosError(error)) {
-      console.error('Axios error fetching products:', error.message);
-    } else {
-      console.error('Unexpected error fetching products:', error);
+const api = axios.create({
+  baseURL: API_URL,
+});
+
+api.interceptors.request.use(
+  (config) => {
+    const token =
+      typeof window !== 'undefined' ? localStorage.getItem('jwt') : null;
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
     }
-    return [];
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
   }
-};
+);
+
+export default api;

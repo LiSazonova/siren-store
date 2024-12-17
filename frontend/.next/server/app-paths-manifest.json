@@ -1,5 +1,4 @@
 {
-  "/collections/page": "app/collections/page.js",
   "/page": "app/page.js",
-  "/collections/[collectionId]/page": "app/collections/[collectionId]/page.js"
+  "/auth/login/page": "app/auth/login/page.js"
 }
