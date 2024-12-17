@@ -4,9 +4,10 @@ import React, { useState, useContext } from 'react';
 import { AuthContext } from '@/context/AuthContext';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import styles from '@/app/auth/Auth.module.css';
+import styles from '@/app/auth/login/LoginPage.module.css';
 import { GoogleLogin, GoogleCredentialResponse } from '@react-oauth/google';
 import { toast } from 'react-toastify';
+import Image from 'next/image';
 
 const LoginPage = () => {
   const { login, loginWithGoogle } = useContext(AuthContext);
@@ -43,50 +44,67 @@ const LoginPage = () => {
   };
 
   return (
-    <div className={styles.authContainer}>
-      <h1>Вход</h1>
-      {error && <p className={styles.error}>{error}</p>}
-      <form onSubmit={handleSubmit} className={styles.authForm}>
-        <label htmlFor="identifier">Email или Имя пользователя:</label>
-        <input
-          type="text"
-          name="identifier"
-          id="identifier"
-          value={form.identifier}
-          onChange={handleChange}
-          required
-        />
+    <section className={styles.auth}>
+      <div className={styles.authContainer}>
+        <div className={styles.authDecoration}>
+          <Image
+            src="/images/decorations/login_siren.svg"
+            width={583}
+            height={321}
+            alt="Login Decoration"
+          />
+        </div>
+        <div>
+          <h1 className={styles.authTitle}>ВХІД</h1>
+          {error && <p className={styles.error}>{error}</p>}
+          <form onSubmit={handleSubmit} className={styles.authForm}>
+            <label htmlFor="identifier">
+              Будь ласка, введіть свою електронну адресу
+            </label>
+            <input
+              type="text"
+              name="identifier"
+              id="identifier"
+              placeholder="Електронна адреса"
+              value={form.identifier}
+              onChange={handleChange}
+              required
+            />
 
-        <label htmlFor="password">Пароль:</label>
-        <input
-          type="password"
-          name="password"
-          id="password"
-          value={form.password}
-          onChange={handleChange}
-          required
-        />
+            <label htmlFor="password">Будь ласка, введіть свій пароль</label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Пароль"
+              value={form.password}
+              onChange={handleChange}
+              required
+            />
 
-        <button type="submit" className={styles.submitButton}>
-          Войти
-        </button>
-      </form>
+            <p className={styles.forgotPassword}>
+              <Link href="/auth/forgot-password">Забули пароль ?</Link>
+            </p>
 
-      <div className={styles.googleLogin}>
-        <p>или</p>
-        <GoogleLogin
-          onSuccess={handleGoogleLoginSuccess}
-          onError={handleGoogleLoginError}
-        />
+            <button type="submit" className={styles.submitButton}>
+              УВІЙТИ
+            </button>
+          </form>
+
+          {/* <div className={styles.googleLogin}>
+            <p>или</p>
+            {/* <GoogleLogin
+            onSuccess={handleGoogleLoginSuccess}
+            onError={handleGoogleLoginError}
+          /> */}
+          {/* </div> */}
+
+          <p>
+            Нет аккаунта? <Link href="/auth/register">Зарегистрироваться</Link>
+          </p>
+        </div>
       </div>
-
-      <p>
-        <Link href="/auth/forgot-password">Забыли пароль?</Link>
-      </p>
-      <p>
-        Нет аккаунта? <Link href="/auth/register">Зарегистрироваться</Link>
-      </p>
-    </div>
+    </section>
   );
 };
 

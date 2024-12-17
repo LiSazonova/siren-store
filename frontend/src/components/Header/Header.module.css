@@ -55,36 +55,29 @@
 
 .authDropdown {
   position: absolute;
-  top: 60px;
-  right: 0;
-  background-color: #fff;
-  border: 1px solid #eaeaea;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 1rem;
+  top: 70px;
+  right: 20%;
+  background-color: transparent;
   display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  min-width: 150px;
   z-index: 1000;
 }
 
 .authDropdown a,
 .authDropdown button {
   text-decoration: none;
-  color: #0070f3;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0.5rem 0;
-  text-align: left;
+    color: var(--black-color);
+    background-color: var(--white-color);
+    border: 1px solid var(--black-color);
+    cursor: pointer;
+    padding: 10px 25px;
+    text-align: center;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 21.78px;
+      text-transform: uppercase;
 }
 
-.authDropdown span {
+.authDropdown p {
   color: #333;
-}
-
-.authDropdown a:hover,
-.authDropdown button:hover {
-  text-decoration: underline;
+  padding: 10px 10px;
 }

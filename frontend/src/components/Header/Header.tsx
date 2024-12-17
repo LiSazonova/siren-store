@@ -61,13 +61,13 @@ const Header: React.FC = () => {
             <div className={styles.authDropdown} ref={authOptionsRef}>
               {user ? (
                 <>
-                  <span>Привет, {user.username}!</span>
+                  <p>Привіт, {user.username}!</p>
                   <button onClick={handleLogout}>Выйти</button>
                 </>
               ) : (
                 <>
-                  <Link href="/auth/login">Войти</Link>
-                  <Link href="/auth/register">Регистрация</Link>
+                  <Link href="/auth/login">ВХІД</Link>
+                  <Link href="/auth/register">РЕЄСТРАЦІЯ</Link>
                 </>
               )}
             </div>

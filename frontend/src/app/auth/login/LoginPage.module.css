@@ -1,0 +1,75 @@
+.auth {
+    background-color: var(--black-color);
+    width: 100vw;
+    height: 100vh;
+    padding: 24px 20px;
+}
+
+.authContainer {
+    display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+}
+
+.authTitle {
+        font-family: var(--font-lora);
+        font-size: 40px;
+        font-weight: 400;
+        line-height: 51.2px;
+        text-align: center;
+        text-transform: uppercase;
+        color: var(--white-color);
+        margin-bottom: 24px;
+}
+
+.authForm {
+        display: flex;
+        flex-direction: column;
+}
+
+.authForm label {
+        font-family: var(--font-inter);
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 21.78px;
+        text-align: left;
+        color: var(--white-color);
+        margin-bottom: 12px;
+        max-width: 320px;
+}
+
+.authForm input {
+    width: 320px;
+    height: 58px;
+    padding: 18px;
+        margin-bottom: 24px;
+}
+
+.authForm ::placeholder {
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 21.78px;
+        color: var(--primary-color);
+}
+
+.authForm button {
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 20px;
+        text-transform: uppercase;
+        color: var(--white-color);
+        text-align: center;
+}
+
+.forgotPassword {
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 21.78px;
+        text-align: right;
+        color: var(--primary-color);
+        margin-bottom: 24px;
+}
+
+.authDecoration {
+    max-width: 320px;
+}

@@ -1321,12 +1321,10 @@ img {
     align-items: center;
     justify-content: center;
     color: inherit;
-    /* Наследование цвета */
 }
 
 .Icon_iconButton__yY2i9:hover {
     color: #0070f3;
-    /* Цвет при наведении, можно изменить по необходимости */
 }
 /*!*****************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[12].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[12].oneOf[7].use[3]!./src/components/SearchBar/SearchBar.module.css ***!
@@ -1575,37 +1573,29 @@ img {
 
 .Header_authDropdown__V1fW3 {
   position: absolute;
-  top: 60px;
-  /* Настройте по необходимости */
-  right: 0;
-  background-color: #fff;
-  border: 1px solid #eaeaea;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 1rem;
+  top: 70px;
+  right: 20%;
+  background-color: transparent;
   display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  min-width: 150px;
   z-index: 1000;
 }
 
 .Header_authDropdown__V1fW3 a,
 .Header_authDropdown__V1fW3 button {
   text-decoration: none;
-  color: #0070f3;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0.5rem 0;
-  text-align: left;
+    color: var(--black-color);
+    background-color: var(--white-color);
+    border: 1px solid var(--black-color);
+    cursor: pointer;
+    padding: 10px 25px;
+    text-align: center;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 21.78px;
+      text-transform: uppercase;
 }
 
-.Header_authDropdown__V1fW3 span {
+.Header_authDropdown__V1fW3 p {
   color: #333;
-}
-
-.Header_authDropdown__V1fW3 a:hover,
-.Header_authDropdown__V1fW3 button:hover {
-  text-decoration: underline;
+  padding: 10px 10px;
 }
