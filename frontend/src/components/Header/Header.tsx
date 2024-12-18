@@ -8,12 +8,12 @@ import SearchBar from '../SearchBar/SearchBar';
 import DesktopIcons from '../DesktopIcons/DesktopIcons';
 import Icons from '../Icons/Icons';
 import MobileMenu from '../MobileMenu/MobileMenu';
-import { AuthContext } from '@/context/AuthContext';
+import { useAuth } from '@/context/AuthContext';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
 const Header: React.FC = () => {
-  const { user, logout } = useContext(AuthContext);
+  const { user, logout } = useAuth();
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [showAuthOptions, setShowAuthOptions] = useState(false);
   const router = useRouter();

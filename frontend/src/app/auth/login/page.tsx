@@ -1,16 +1,14 @@
 'use client';
 
 import React, { useState, useContext } from 'react';
-import { AuthContext } from '@/context/AuthContext';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { useAuth } from '@/context/AuthContext';
 import styles from '@/app/auth/login/LoginPage.module.css';
-import { GoogleLogin, GoogleCredentialResponse } from '@react-oauth/google';
-import { toast } from 'react-toastify';
 import Image from 'next/image';
 
 const LoginPage = () => {
-  const { login, loginWithGoogle } = useContext(AuthContext);
+  const { login } = useAuth();
   const router = useRouter();
 
   const [form, setForm] = useState({
@@ -30,17 +28,6 @@ const LoginPage = () => {
     } else {
       setError('Ошибка входа. Проверьте данные и попробуйте снова.');
     }
-  };
-
-  const handleGoogleLoginSuccess = async (
-    credentialResponse: GoogleCredentialResponse
-  ) => {
-    await loginWithGoogle(credentialResponse);
-    router.push('/');
-  };
-
-  const handleGoogleLoginError = () => {
-    toast.error('Google авторизация не удалась.');
   };
 
   return (

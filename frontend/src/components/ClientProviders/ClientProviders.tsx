@@ -1,10 +1,10 @@
 'use client';
 
 import React from 'react';
-import { AuthProvider } from '@/context/AuthContext';
 import { ToastContainer } from 'react-toastify';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import 'react-toastify/dist/ReactToastify.css';
+import { AuthProvider } from '@/context/AuthContext';
 
 interface ClientProvidersProps {
   children: React.ReactNode;

@@ -5,13 +5,13 @@ import Link from 'next/link';
 import styles from './MobileMenu.module.css';
 import { usePathname } from 'next/navigation';
 import Icon from '../Icon/Icon';
-import { AuthContext } from '@/context/AuthContext';
+import { useAuth } from '@/context/AuthContext';
 import { useRouter } from 'next/navigation';
 
 const MobileMenu: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
-  const { user, logout } = useContext(AuthContext);
+  const { user, logout } = useAuth();
   const router = useRouter();
   const menuRef = useRef<HTMLDivElement>(null);
 
