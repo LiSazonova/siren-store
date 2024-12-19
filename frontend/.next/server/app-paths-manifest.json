@@ -1,4 +1,6 @@
 {
+  "/not-found": "app/not-found.js",
   "/page": "app/page.js",
+  "/collections/page": "app/collections/page.js",
   "/collections/[collectionId]/page": "app/collections/[collectionId]/page.js"
 }
