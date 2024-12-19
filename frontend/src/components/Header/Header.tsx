@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useContext, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styles from './Header.module.css';
 import Logo from '../Logo/Logo';
 import DesktopMenu from '../DesktopMenu/Desktop';
@@ -62,7 +62,7 @@ const Header: React.FC = () => {
               {user ? (
                 <>
                   <p>Привіт, {user.username}!</p>
-                  <button onClick={handleLogout}>Выйти</button>
+                  <button onClick={handleLogout}>ВИЙТИ</button>
                 </>
               ) : (
                 <>

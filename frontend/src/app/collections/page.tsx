@@ -20,22 +20,24 @@ export default function CollectionsPage() {
   return (
     <main>
       <section className={styles.collectionsPage}>
-        <h1 className={styles.title}>КОЛЕКЦІЇ</h1>
-        <div className={styles.collections}>
-          {collections.map((collection) => (
-            <div key={collection.title} className={styles.collection}>
-              <Link href={collection.href}>
-                <Image
-                  src={collection.image}
-                  alt={collection.title}
-                  width={292}
-                  height={374}
-                  className={styles.image}
-                />
-                <h2 className={styles.collectionTitle}>{collection.title}</h2>
-              </Link>
-            </div>
-          ))}
+        <div className={styles.container}>
+          <h1 className={styles.title}>КОЛЕКЦІЇ</h1>
+          <div className={styles.collections}>
+            {collections.map((collection) => (
+              <div key={collection.title} className={styles.collection}>
+                <Link href={collection.href}>
+                  <Image
+                    src={collection.image}
+                    alt={collection.title}
+                    width={292}
+                    height={374}
+                    className={styles.image}
+                  />
+                  <h2 className={styles.collectionTitle}>{collection.title}</h2>
+                </Link>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     </main>
