@@ -15,17 +15,17 @@ const Slider: React.FC = () => {
   const slides: Slide[] = [
     {
       id: 1,
-      src: '/images/products/slide2.jpg',
+      src: '/images/products/robe_emerald/robe_emerald_4.jpg',
       alt: 'Зелена сукня',
     },
     {
       id: 2,
-      src: '/images/products/slide1.jpg',
+      src: '/images/products/blue_corset_dress/blue_corset_dress.jpg',
       alt: 'Синя сукня',
     },
     {
       id: 3,
-      src: '/images/products/slide3.jpg',
+      src: '/images/products/set_purple_diamond/set_purple_diamond_3.jpg',
       alt: 'Чорна сукня',
     },
   ];

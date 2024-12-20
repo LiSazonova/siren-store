@@ -1,3 +1,16 @@
 {
-  "pages": {}
+  "pages": {
+    "/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/layout.css",
+      "static/chunks/app/layout.js"
+    ],
+    "/collections/[collectionId]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/collections/[collectionId]/page.css",
+      "static/chunks/app/collections/[collectionId]/page.js"
+    ]
+  }
 }

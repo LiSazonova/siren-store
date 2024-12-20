@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from '../../app/collections/[collectionId]/CollectionPage.module.css';
-import ProductImage from '../ProductImage/ProductImage';
-import AddToCartButton from '../AddToCardButton/AddToCardButton';
+import Image from 'next/image';
+import Icon from '@/components/Icon/Icon';
+import styles from './ProductCard.module.css';
 
 interface Product {
   id: number;
@@ -9,7 +9,6 @@ interface Product {
   slug: string;
   price: string;
   description: string;
-  image: string;
 }
 
 interface ProductCardProps {
@@ -17,6 +16,9 @@ interface ProductCardProps {
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
+  // Формируем путь к главному изображению на основе slug
+  const imagePath = `/images/products/${product.slug}/${product.slug}.jpg`;
+
   return (
     <div
       className={styles.productCard}
@@ -28,8 +30,16 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       }
     >
       <div className={styles.imageWrapper}>
-        <ProductImage src={product.image} alt={product.name} />
-        <AddToCartButton />
+        <Image
+          src={imagePath} // Используем сформированный путь
+          alt={product.name}
+          width={292}
+          height={374}
+          className={styles.productImage}
+        />
+        <button className={styles.addToCart}>
+          <Icon name="basket" width={24} height={24} alt="Корзина" />
+        </button>
       </div>
       <div className={styles.productInfo}>
         <h2 className={styles.productName}>{product.name}</h2>
