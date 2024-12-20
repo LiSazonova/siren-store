@@ -16,7 +16,6 @@ interface ProductCardProps {
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
-  // Формируем путь к главному изображению на основе slug
   const imagePath = `/images/products/${product.slug}/${product.slug}.jpg`;
 
   return (
@@ -31,7 +30,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     >
       <div className={styles.imageWrapper}>
         <Image
-          src={imagePath} // Используем сформированный путь
+          src={imagePath}
           alt={product.name}
           width={292}
           height={374}
