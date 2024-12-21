@@ -1494,14 +1494,12 @@ img {
 .MobileMenu_authLinks__xc0g2 {
   margin-top: auto;
   display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  gap: 32px;
 }
 
 .MobileMenu_authLink__Wp1OV,
 .MobileMenu_authButton__1MzSh {
-  font-size: 1.2rem;
-  color: #0070f3;
+  font-size: 18px;
   background: none;
   border: none;
   cursor: pointer;

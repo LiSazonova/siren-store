@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useContext, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import styles from './MobileMenu.module.css';
 import { usePathname } from 'next/navigation';
@@ -14,9 +14,12 @@ const MobileMenu: React.FC = () => {
   const { user, logout } = useAuth();
   const router = useRouter();
   const menuRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
-  const handleMobileMenuToggle = (): void => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
+  const handleMobileMenuToggle = (event: React.MouseEvent): void => {
+    event.stopPropagation(); 
+    setIsMobileMenuOpen((prevState) => !prevState);
+    console.log('Кнопка меню, переключение состояния:', !isMobileMenuOpen);
   };
 
   const isActive = (path: string) => pathname === path;
@@ -29,25 +32,28 @@ const MobileMenu: React.FC = () => {
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(event.target as Node) &&
+        !buttonRef.current?.contains(event.target as Node)
+      ) {
         setIsMobileMenuOpen(false);
       }
     };
-    if (isMobileMenuOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
-    } else {
-      document.removeEventListener('mousedown', handleClickOutside);
-    }
+
+    document.addEventListener('mousedown', handleClickOutside);
+
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [isMobileMenuOpen]);
+  }, []);
 
   return (
     <>
       <button
+        ref={buttonRef}
         onClick={handleMobileMenuToggle}
-        aria-label="Menu"
+        aria-label={isMobileMenuOpen ? 'Close Menu' : 'Open Menu'}
         className={styles.menuButton}
       >
         <Icon
@@ -58,58 +64,61 @@ const MobileMenu: React.FC = () => {
         />
       </button>
 
-      <nav
-        className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.mobileMenuOpen : ''}`}
-        ref={menuRef}
-      >
-        <div className={styles.mobileMenuContainer}>
-          <Link
-            href="/"
-            className={`${styles.mobileMenuItem} ${isActive('/') ? styles.active : ''}`}
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            Головна
-          </Link>
-          <Link
-            href="/collections"
-            className={`${styles.mobileMenuItem} ${isActive('/collections') ? styles.active : ''}`}
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            Колекції
-          </Link>
-          <Link
-            href="/about"
-            className={`${styles.mobileMenuItem} ${isActive('/about-us') ? styles.active : ''}`}
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            Про нас
-          </Link>
-          <div className={`${styles.mobileMenuItem} ${styles.authLinks}`}>
-            {user ? (
-              <button onClick={handleLogout} className={styles.authButton}>
-                Вийти
-              </button>
-            ) : (
-              <>
-                <Link
-                  href="/auth/login"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className={styles.authLink}
-                >
-                  Вхід
-                </Link>
-                <Link
-                  href="/auth/register"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className={styles.authLink}
-                >
-                  Реєстрація
-                </Link>
-              </>
-            )}
+      {isMobileMenuOpen && (
+        <nav
+          className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.mobileMenuOpen : ''}`}
+          ref={menuRef}
+        >
+          <div className={styles.mobileMenuContainer}>
+            <Link
+              href="/"
+              className={`${styles.mobileMenuItem} ${isActive('/') ? styles.active : ''}`}
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Головна
+            </Link>
+            <Link
+              href="/collections"
+              className={`${styles.mobileMenuItem} ${isActive('/collections') ? styles.active : ''}`}
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Колекції
+            </Link>
+            <Link
+              href="/about"
+              className={`${styles.mobileMenuItem} ${isActive('/about-us') ? styles.active : ''}`}
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Про нас
+            </Link>
+
+            <div className={`${styles.mobileMenuItem} ${styles.authLinks}`}>
+              {user ? (
+                <button onClick={handleLogout} className={styles.authButton}>
+                  Вийти
+                </button>
+              ) : (
+                <>
+                  <Link
+                    href="/auth/login"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={styles.authLink}
+                  >
+                    Вхід
+                  </Link>
+                  <Link
+                    href="/auth/register"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={styles.authLink}
+                  >
+                    Реєстрація
+                  </Link>
+                </>
+              )}
+            </div>
           </div>
-        </div>
-      </nav>
+        </nav>
+      )}
     </>
   );
 };

@@ -84,14 +84,12 @@
 .authLinks {
   margin-top: auto;
   display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  gap: 32px;
 }
 
 .authLink,
 .authButton {
-  font-size: 1.2rem;
-  color: #0070f3;
+  font-size: 18px;
   background: none;
   border: none;
   cursor: pointer;
