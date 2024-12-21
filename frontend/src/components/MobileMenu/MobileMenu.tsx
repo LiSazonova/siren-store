@@ -78,7 +78,7 @@ const MobileMenu: React.FC = () => {
             Колекції
           </Link>
           <Link
-            href="/about-us"
+            href="/about"
             className={`${styles.mobileMenuItem} ${isActive('/about-us') ? styles.active : ''}`}
             onClick={() => setIsMobileMenuOpen(false)}
           >

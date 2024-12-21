@@ -22,7 +22,7 @@ const DesktopMenu: React.FC = () => {
         Колекції
       </Link>
       <Link
-        href="/about-us"
+        href="/about"
         className={`${styles.menuItem} ${isActive('/about-us') ? styles.active : ''}`}
       >
         Про нас
