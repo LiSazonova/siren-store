@@ -20,5 +20,4 @@ const ProductImage: React.FC<ProductImageProps> = ({ src, alt }) => {
     />
   );
 };
-
 export default ProductImage;
