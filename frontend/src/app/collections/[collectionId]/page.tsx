@@ -255,7 +255,7 @@ const CollectionPage: React.FC<PageProps> = ({ params }) => {
     'blue_corset_dress',
     'purple_shine_dress',
     'blue_dress',
-    'emerald_dress',
+    'emerald',
     'set_purple_diamond',
     'black_naked_dress',
   ];
