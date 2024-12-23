@@ -19,7 +19,7 @@
 /*!***********************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[12].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[12].oneOf[7].use[3]!./src/components/Slider/Slider.module.css ***!
   \***********************************************************************************************************************************************************************************************************************************************************************************/
-.Slider_slider__mLQdv {
+/* .slider {
   position: relative;
   max-width: 100%;
   overflow: hidden;
@@ -29,7 +29,7 @@
   margin-bottom: 106px;
 }
 
-.Slider_slider__container__OUe25 {
+.slider__container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -39,39 +39,39 @@
   overflow: hidden;
 }
 
-.Slider_centerSlideImg__olFir {
+.centerSlideImg {
   width: 292px;
   height: 409px;
   object-fit: cover;
 }
 
-.Slider_sideSlideImg__burbP {
+.sideSlideImg {
   width: 251px;
   height: 352px;
 }
 
-.Slider_slide__hzA1m {
+.slide {
   position: relative;
 }
 
-.Slider_centerSlide__rYz7v {
+.centerSlide {
   z-index: 5;
 }
 
-.Slider_leftSlide__Zl8Rx,
-.Slider_rightSlide__M_P_9 {
+.leftSlide,
+.rightSlide {
   z-index: 2;
 }
 
-.Slider_leftSlide__Zl8Rx {
+.leftSlide {
   transform: translateX(-9px);
 }
 
-.Slider_rightSlide__M_P_9 {
+.rightSlide {
   transform: translateX(9px);
 }
 
-.Slider_slider__arrow__GVix_ {
+.slider__arrow {
   position: absolute;
   background: none;
   border: none;
@@ -81,82 +81,232 @@
   height: 38px;
 }
 
-.Slider_slider__arrowLeft__2cOmw {
+.slider__arrowLeft {
   left: calc(50% - 155px);
 }
 
-.Slider_slider__arrowRight__4xvOW {
+.slider__arrowRight {
   right: calc(50% - 155px);
 }
 
 @media (min-width: 768px) {
-  .Slider_slider__container__OUe25 {
+  .slider__container {
     position: relative;
     width: 728px;
     margin: 0 auto;
   }
 
-  .Slider_slider__arrowLeft__2cOmw {
+  .slider__arrowLeft {
     left: calc(50% - 363px);
   }
 
-  .Slider_slider__arrowRight__4xvOW {
+  .slider__arrowRight {
     right: calc(50% - 363px);
   }
 
-  .Slider_centerSlideImg__olFir {
+  .centerSlideImg {
     width: 221px;
     height: 408px;
     object-fit: cover;
   }
 
-  .Slider_sideSlideImg__burbP {
+  .sideSlideImg {
     width: 221px;
     height: 350px;
   }
 
-  .Slider_leftSlide__Zl8Rx {
+  .leftSlide {
     transform: translateX(-4px);
   }
 
-  .Slider_rightSlide__M_P_9 {
+  .rightSlide {
     transform: translateX(4px);
   }
 }
 
 @media (min-width: 1228px) {
-  .Slider_slider__container__OUe25 {
+  .slider__container {
     width: 880px;
     margin: 0 auto;
   }
 
-  .Slider_slider__arrowLeft__2cOmw {
+  .slider__arrowLeft {
     left: calc(50% - 439px);
   }
 
-  .Slider_slider__arrowRight__4xvOW {
+  .slider__arrowRight {
     right: calc(50% - 439px);
   }
 
-  .Slider_centerSlideImg__olFir {
+  .centerSlideImg {
     width: 292px;
     height: 409px;
   }
 
-  .Slider_sideSlideImg__burbP {
+  .sideSlideImg {
     width: 251px;
     height: 352px;
   }
 
-  .Slider_leftSlide__Zl8Rx {
+  .leftSlide {
     transform: translateX(-9px);
   }
 
-  .Slider_rightSlide__M_P_9 {
+  .rightSlide {
     transform: translateX(9px);
+  }
+} */
+
+
+.Slider_slider__mLQdv {
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 56px;
+}
+
+.Slider_sliderContainer__goqrI {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 410px;
+}
+
+.Slider_slide__hzA1m {
+  position: absolute;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  opacity: 0;
+}
+
+.Slider_centerSlide__rYz7v {
+  transform: translateX(0);
+  opacity: 1;
+  z-index: 3;
+  width: 292px;
+  height: 409px;
+}
+
+.Slider_leftSlide__Zl8Rx {
+  transform: translateX(-280px);
+  opacity: 0.9;
+  z-index: 2;
+  width: 251px;
+  height: 352px;
+}
+
+.Slider_rightSlide__M_P_9 {
+  transform: translateX(280px);
+  opacity: 0.9;
+  z-index: 2;
+  width: 251px;
+  height: 352px;
+}
+
+.Slider_hiddenSlide__2spQ8 {
+  transform: translateX(200%);
+  opacity: 0;
+  z-index: 1;
+}
+
+.Slider_slideImage__qJCJD {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.Slider_sliderArrow__C520_ {
+  position: absolute;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 2;
+  width: 14px;
+  height: 38px;
+}
+
+.Slider_sliderArrowLeft__1q8xw {
+  left: calc(50% - 155px);
+}
+
+.Slider_sliderArrowRight__NqcRc {
+  right: calc(50% - 155px);
+}
+
+@media (min-width: 768px) {
+  .Slider_slider__mLQdv {
+    margin-bottom: 86px;
+  }
+
+  .Slider_sliderContainer__goqrI {
+    width: 728px;
+    margin: 0 auto;
+  }
+
+  .Slider_sliderArrowLeft__1q8xw {
+    left: calc(50% - 363px);
+  }
+
+  .Slider_sliderArrowRight__NqcRc {
+    right: calc(50% - 363px);
+  }
+
+  .Slider_centerSlide__rYz7v {
+    width: 221px;
+    height: 408px;
+  }
+
+  .Slider_leftSlide__Zl8Rx {
+    transform: translateX(-224px);
+  }
+
+  .Slider_rightSlide__M_P_9 {
+    transform: translateX(224px);
+  }
+
+  .Slider_leftSlide__Zl8Rx,
+  .Slider_rightSlide__M_P_9 {
+    width: 221px;
+    height: 352px;
   }
 }
 
+@media screen and (min-width: 1228px) {
+  .Slider_slider__mLQdv {
+    margin-bottom: 106px;
+  }
+
+  .Slider_sliderArrowLeft__1q8xw {
+    left: calc(50% - 440px);
+  }
+
+  .Slider_sliderArrowRight__NqcRc {
+    right: calc(50% - 440px);
+  }
+
+  .Slider_leftSlide__Zl8Rx,
+  .Slider_rightSlide__M_P_9 {
+    width: 251px;
+    height: 352px;
+  }
+
+  .Slider_centerSlide__rYz7v {
+    width: 292px;
+  }
+
+  .Slider_leftSlide__Zl8Rx {
+    transform: translateX(-280px);
+  }
+
+  .Slider_rightSlide__M_P_9 {
+    transform: translateX(280px);
+  }
+
+}
 /*!*******************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[12].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[12].oneOf[7].use[3]!./src/components/Hero/Hero.module.css ***!
   \*******************************************************************************************************************************************************************************************************************************************************************************/
@@ -204,7 +354,7 @@
   font-size: 24px;
   line-height: 0.83333;
   text-transform: uppercase;
-  padding: 19px 68px;
+  padding: 19px 67px;
   border: none;
   background-color: var(--black-color);
   color: var(--white-color);

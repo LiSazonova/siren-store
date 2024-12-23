@@ -1440,7 +1440,7 @@ img {
 
 .MobileMenu_mobileMenuItem__Vuz_a {
   display: block;
-  text-align: right;
+  text-align: center;
   font-weight: 400;
   font-size: 18px;
   width: 100%;
@@ -1458,7 +1458,7 @@ img {
 
 .MobileMenu_authLinks__xc0g2 {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
   gap: 32px;
   border-bottom: 1.5px solid var(--primary-color);
