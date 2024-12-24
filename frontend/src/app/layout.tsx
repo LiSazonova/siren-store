@@ -5,6 +5,7 @@ import Header from '@/components/Header/Header';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ClientProviders from '@/components/ClientProviders/ClientProviders';
+import { CartProvider } from '@/context/CartContext';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -55,9 +56,11 @@ export default function RootLayout({
         className={`${inter.variable} ${lora.variable} ${lobster.variable} ${kaushan.variable}`}
       >
         <ClientProviders>
-          <Header />
-          {children}
-          <ToastContainer />
+          <CartProvider>
+            <Header />
+            {children}
+            <ToastContainer />
+          </CartProvider>
         </ClientProviders>
       </body>
     </html>

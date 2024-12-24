@@ -17,9 +17,8 @@ const MobileMenu: React.FC = () => {
   const buttonRef = useRef<HTMLButtonElement>(null);
 
   const handleMobileMenuToggle = (event: React.MouseEvent): void => {
-    event.stopPropagation(); 
+    event.stopPropagation();
     setIsMobileMenuOpen((prevState) => !prevState);
-    console.log('Кнопка меню, переключение состояния:', !isMobileMenuOpen);
   };
 
   const isActive = (path: string) => pathname === path;

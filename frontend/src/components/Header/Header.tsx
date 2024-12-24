@@ -11,9 +11,11 @@ import MobileMenu from '../MobileMenu/MobileMenu';
 import { useAuth } from '@/context/AuthContext';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { useCart } from '@/context/CartContext';
 
 const Header: React.FC = () => {
   const { user, logout } = useAuth();
+  const { cartItems } = useCart();
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [showAuthOptions, setShowAuthOptions] = useState(false);
   const router = useRouter();
@@ -27,6 +29,14 @@ const Header: React.FC = () => {
     logout();
     setShowAuthOptions(false);
     router.push('/');
+  };
+
+  const handleCartClick = () => {
+    if (cartItems > 0) {
+      router.push('/cart');
+    } else {
+      router.push('/cart-empty');
+    }
   };
 
   useEffect(() => {
@@ -56,7 +66,12 @@ const Header: React.FC = () => {
           <Logo />
           <DesktopMenu />
           <SearchBar isDesktop={true} />
-          <DesktopIcons onUserClick={toggleAuthOptions} />
+          <DesktopIcons
+            onUserClick={toggleAuthOptions}
+            onCartClick={handleCartClick}
+            cartItems={cartItems}
+          />
+
           {showAuthOptions && (
             <div className={styles.authDropdown} ref={authOptionsRef}>
               {user ? (
@@ -86,7 +101,7 @@ const Header: React.FC = () => {
             />
             {!isSearchOpen && (
               <>
-                <Icons />
+                <Icons onCartClick={handleCartClick} cartCount={cartItems} />
                 <MobileMenu />
               </>
             )}

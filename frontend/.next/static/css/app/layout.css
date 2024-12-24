@@ -1308,6 +1308,7 @@ img {
   color: var(--black-color);
 }
 
+
 /*!*******************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[12].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[12].oneOf[7].use[3]!./src/components/Icon/Icon.module.css ***!
   \*******************************************************************************************************************************************************************************************************************************************************************************/
@@ -1395,6 +1396,26 @@ img {
   gap: 32px;
 }
 
+.DesktopIcons_cartWrapper__YxCJ2 {
+  position: relative;
+  cursor: pointer;
+}
+
+.DesktopIcons_cartCount__q8784 {
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  background-color: red;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 /*!*********************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[12].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[12].oneOf[7].use[3]!./src/components/Icons/Icons.module.css ***!
   \*********************************************************************************************************************************************************************************************************************************************************************************/
@@ -1405,6 +1426,26 @@ img {
   margin-right: 32px;
 }
 
+.Icons_cartWrapper__sY3EY {
+  position: relative;
+  cursor: pointer;
+}
+
+.Icons_cartCount___IWCa {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+}
 /*!*******************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[12].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[12].oneOf[7].use[3]!./src/components/MobileMenu/MobileMenu.module.css ***!
   \*******************************************************************************************************************************************************************************************************************************************************************************************/
@@ -1596,4 +1637,20 @@ img {
 .Header_authDropdown__V1fW3 p {
   color: #333;
   padding: 10px 10px;
+}
+
+.Header_cartIcon__d8fsU {
+  position: relative;
+}
+
+.Header_cartBadge__cmo77 {
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  background: red;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 50%;
+  padding: 2px 6px;
 }
