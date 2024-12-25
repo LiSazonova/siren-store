@@ -1335,6 +1335,7 @@ img {
   align-items: center;
   border: 1px solid var(--primary-color);
   padding: 8px 12px;
+  width: 200px;
 }
 
 .SearchBar_searchInput__jatEt {
@@ -1383,7 +1384,7 @@ img {
   right: 0;
   background: white;
   border: 1px solid var(--primary-color);
-  width: 100%;
+  width: 200px;
   max-height: 500px;
   overflow-y: auto;
   z-index: 10;
@@ -1410,13 +1411,21 @@ img {
 }
 @media (min-width: 768px) {
   .SearchBar_searchBar__hUGQq {
-    min-width: 587px;
+    width: 587px;
+  }
+
+  .SearchBar_dropdownMenu__5tMiv {
+    width: 587px;
   }
 }
 
 @media screen and (min-width: 1228px) {
   .SearchBar_searchBar__hUGQq {
-    min-width: 396px;
+    width: 396px;
+  }
+
+  .SearchBar_dropdownMenu__5tMiv {
+    width: 396px;
   }
 }
 

@@ -112,6 +112,7 @@ import Link from 'next/link';
 import { useAuth } from '@/context/AuthContext';
 import styles from '@/app/auth/Auth.module.css';
 import Modal from '@/components/Modal/Modal';
+import Image from 'next/image';
 
 const RegisterPage = () => {
   const { register } = useAuth();
@@ -121,6 +122,7 @@ const RegisterPage = () => {
     username: '',
     email: '',
     password: '',
+    number: '',
   });
   const [error, setError] = useState<string | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -144,45 +146,65 @@ const RegisterPage = () => {
 
   return (
     <div className={styles.authContainer}>
-      <h1>Регистрация</h1>
+      <div className={styles.authDecoration}>
+        <Image
+          src="/images/decorations/registr_siren.svg"
+          width={583}
+          height={321}
+          alt="Login Decoration"
+        />
+      </div>
+      <h1>РЕГІСТРАЦІЯ</h1>
       {error && <p className={styles.error}>{error}</p>}
       <form onSubmit={handleSubmit} className={styles.authForm}>
-        <label htmlFor="username">Имя пользователя:</label>
+        <label htmlFor="username">Будь ласка, введіть своє ім'я</label>
         <input
           type="text"
           name="username"
           id="username"
           value={form.username}
           onChange={handleChange}
+          placeholder="Ім'я"
           required
         />
-
-        <label htmlFor="email">Email:</label>
+        <label htmlFor="email">
+          Будь ласка, введіть свою електронну адресу
+        </label>
         <input
           type="email"
           name="email"
           id="email"
           value={form.email}
           onChange={handleChange}
+          placeholder="Електронна адреса"
           required
         />
-
-        <label htmlFor="password">Пароль:</label>
+        <label htmlFor="password">Будь ласка, введіть свій пароль</label>
         <input
           type="password"
           name="password"
           id="password"
           value={form.password}
           onChange={handleChange}
+          placeholder="Пароль"
           required
         />
-
+        <label htmlFor="text">Будь ласка, введіть свою дату народження</label>
+        <input
+          type="number"
+          name="number"
+          id="number"
+          value={form.number}
+          onChange={handleChange}
+          placeholder="Дата народження"
+          required
+        />
         <button type="submit" className={styles.submitButton}>
-          Зарегистрироваться
+          Зареєструватися
         </button>
       </form>
       <p>
-        Уже есть аккаунт? <Link href="/auth/login">Войти</Link>
+        У МЕНЕ ВЖЕ Є ПРОФІЛЬ <Link href="/auth/login">Войти</Link>
       </p>
 
       {/* Модальное окно для ошибки регистрации */}
