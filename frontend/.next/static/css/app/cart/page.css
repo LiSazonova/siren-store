@@ -1,0 +1,60 @@
+/*!****************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[12].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[12].oneOf[7].use[3]!./src/app/cart/CartPage.module.css ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************/
+.CartPage_cartPage__vwWtz {
+    padding: 20px;
+}
+
+.CartPage_title__5m4EB {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.CartPage_table__ndUNs {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.CartPage_table__ndUNs th,
+.CartPage_table__ndUNs td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.CartPage_productInfo__yon0_ {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.CartPage_productImage__KY6Nk {
+    margin-right: 10px;
+}
+
+.CartPage_select__urGvS {
+    padding: 5px;
+}
+
+.CartPage_removeButton__npCOv {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.CartPage_orderSummary__Hdgv4 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.CartPage_checkoutButton__D4izq {
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    text-transform: uppercase;
+}

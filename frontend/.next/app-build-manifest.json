@@ -24,12 +24,6 @@
       "static/css/app/collections/[collectionId]/page.css",
       "static/chunks/app/collections/[collectionId]/page.js"
     ],
-    "/auth/forgot-password/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/auth/forgot-password/page.css",
-      "static/chunks/app/auth/forgot-password/page.js"
-    ],
     "/products/[slug]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -39,6 +33,7 @@
     "/cart/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
+      "static/css/app/cart/page.css",
       "static/chunks/app/cart/page.js"
     ]
   }

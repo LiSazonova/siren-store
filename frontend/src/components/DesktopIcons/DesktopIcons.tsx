@@ -6,13 +6,13 @@ import Link from 'next/link';
 interface DesktopIconsProps {
   onUserClick: () => void;
   onCartClick: () => void;
-  cartItems: number; // Правильное имя пропса
+  cartItems: number; // Количество товаров в корзине
 }
 
 const DesktopIcons: React.FC<DesktopIconsProps> = ({
   onUserClick,
   onCartClick,
-  cartItems, // Используем правильное имя
+  cartItems,
 }) => (
   <div className={styles.desktopIcons}>
     <Link
@@ -24,7 +24,7 @@ const DesktopIcons: React.FC<DesktopIconsProps> = ({
     </Link>
     <div className={styles.cartWrapper} onClick={onCartClick}>
       <Icon name="basket" width={24} height={24} alt="Корзина" />
-      {/* Используем cartItems для отображения количества */}
+      {/* Отображаем количество товаров в корзине */}
       {cartItems > 0 && <span className={styles.cartCount}>{cartItems}</span>}
     </div>
     <Icon

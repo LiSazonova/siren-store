@@ -10,8 +10,8 @@ import Icons from '../Icons/Icons';
 import MobileMenu from '../MobileMenu/MobileMenu';
 import { useAuth } from '@/context/AuthContext';
 import { useRouter } from 'next/navigation';
-import Link from 'next/link';
 import { useCart } from '@/context/CartContext';
+import Link from 'next/link';
 
 const Header: React.FC = () => {
   const { user, logout } = useAuth();
@@ -32,11 +32,7 @@ const Header: React.FC = () => {
   };
 
   const handleCartClick = () => {
-    if (cartItems > 0) {
-      router.push('/cart');
-    } else {
-      router.push('/cart-empty');
-    }
+    router.push('/cart'); // Перейти на страницу корзины
   };
 
   useEffect(() => {
@@ -69,7 +65,7 @@ const Header: React.FC = () => {
           <DesktopIcons
             onUserClick={toggleAuthOptions}
             onCartClick={handleCartClick}
-            cartItems={cartItems}
+            cartItems={cartItems.length} // Передаем длину массива товаров
           />
 
           {showAuthOptions && (
@@ -101,7 +97,10 @@ const Header: React.FC = () => {
             />
             {!isSearchOpen && (
               <>
-                <Icons onCartClick={handleCartClick} cartCount={cartItems} />
+                <Icons
+                  onCartClick={handleCartClick}
+                  cartCount={cartItems.length} // Количество товаров для отображения
+                />
                 <MobileMenu />
               </>
             )}

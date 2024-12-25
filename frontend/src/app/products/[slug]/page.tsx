@@ -11,7 +11,7 @@ interface Product {
   id: number;
   name: string;
   description: string;
-  price: string;
+  price: number;
   sizes: string[];
   slug: string;
 }
@@ -32,7 +32,7 @@ async function fetchProduct(slug: string): Promise<Product> {
     id: product.id,
     name: product.name,
     description: product.description,
-    price: product.price,
+    price: Number(product.price),
     sizes: product.sizes,
     slug: product.slug,
   };
@@ -41,8 +41,12 @@ async function fetchProduct(slug: string): Promise<Product> {
 const ProductPage: React.FC<{ params: { slug: string } }> = ({ params }) => {
   const [product, setProduct] = useState<Product | null>(null);
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
-  const { addToCart } = useCart();
+  const { cartItems, addToCart } = useCart(); // Проверяем состояние корзины
   const router = useRouter();
+
+  useEffect(() => {
+    console.log('Current cart items:', cartItems); // Отображаем содержимое корзины
+  }, [cartItems]);
 
   useEffect(() => {
     fetchProduct(params.slug)
@@ -65,6 +69,15 @@ const ProductPage: React.FC<{ params: { slug: string } }> = ({ params }) => {
       toast.error('Помилка: будь ласка, виберіть розмір перед покупкою!');
       return;
     }
+    console.log('Adding item to cart and redirecting to /cart');
+    addToCart({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      size: selectedSize,
+      quantity: 1,
+      slug: product.slug,
+    });
     router.push('/cart');
   };
 
@@ -73,15 +86,29 @@ const ProductPage: React.FC<{ params: { slug: string } }> = ({ params }) => {
       toast.error('Помилка: виберіть розмір перед додаванням у корзину!');
       return;
     }
-    addToCart();
-    toast.success('Товар додано у корзину!');
+    console.log('Adding item to cart:', {
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      size: selectedSize,
+      quantity: 1,
+      slug: product.slug,
+    });
+    addToCart({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      size: selectedSize,
+      quantity: 1,
+      slug: product.slug,
+    });
+    toast.success(`${product.name} додано у корзину!`);
   };
 
   return (
     <main className={styles.productPage}>
       <div className={styles.container}>
         <h1 className={styles.title}>{product.name}</h1>
-
         <div className={styles.imageWrapper}>
           <Image
             src={imagePath}
@@ -91,7 +118,6 @@ const ProductPage: React.FC<{ params: { slug: string } }> = ({ params }) => {
             className={styles.productImage}
           />
         </div>
-
         <div className={styles.infoWrapper}>
           <p className={styles.price}>{product.price} грн</p>
           <p className={styles.description}>{product.description}</p>
