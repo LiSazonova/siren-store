@@ -191,7 +191,89 @@
 
 // export default CollectionPage;
 
-// app/collections/[collectionId]/page.tsx
+// // app/collections/[collectionId]/page.tsx
+// 'use client';
+
+// import React, { useEffect, useState } from 'react';
+// import ProductList from '@/components/ProductList/ProductList';
+// import styles from './CollectionPage.module.css';
+
+// interface Product {
+//   id: number;
+//   name: string;
+//   slug: string;
+//   price: string;
+//   description: string;
+// }
+
+// async function fetchProducts(collectionSlug: string): Promise<Product[]> {
+//   const res = await fetch(
+//     `https://siren-store.onrender.com/api/products?filters[collection][slug][$eq]=${collectionSlug}&populate=*`
+//   );
+
+//   if (!res.ok) {
+//     throw new Error('Failed to fetch products');
+//   }
+
+//   const data = await res.json();
+
+//   return data.data.map((product: any) => ({
+//     id: product.id,
+//     name: product.name,
+//     slug: product.slug,
+//     price: product.price,
+//     description: product.description,
+//   }));
+// }
+
+// interface PageProps {
+//   params: {
+//     collectionId: string;
+//   };
+// }
+
+// const CollectionPage: React.FC<PageProps> = ({ params }) => {
+//   const [products, setProducts] = useState<Product[]>([]);
+
+//   useEffect(() => {
+//     async function loadProducts() {
+//       try {
+//         const data = await fetchProducts(params.collectionId);
+//         setProducts(data);
+//       } catch (error) {
+//         console.error('Ошибка при загрузке продуктов', error);
+//       }
+//     }
+
+//     loadProducts();
+//   }, [params.collectionId]);
+
+//   const customOrder = [
+//     'mint_dress',
+//     'robe_emerald',
+//     'black_floral_dress',
+//     'blue_corset_dress',
+//     'purple_shine_dress',
+//     'blue_dress',
+//     'emerald',
+//     'set_purple_diamond',
+//     'black_naked_dress',
+//   ];
+
+//   const sortedProducts = products.sort(
+//     (a, b) => customOrder.indexOf(a.slug) - customOrder.indexOf(b.slug)
+//   );
+
+//   return (
+//     <main className={styles.main}>
+//       <h1 className={styles.title}>Moon crystal</h1>
+//       <ProductList products={sortedProducts} />
+//     </main>
+//   );
+// };
+
+// export default CollectionPage;
+
 'use client';
 
 import React, { useEffect, useState } from 'react';
@@ -248,25 +330,40 @@ const CollectionPage: React.FC<PageProps> = ({ params }) => {
     loadProducts();
   }, [params.collectionId]);
 
-  const customOrder = [
-    'mint_dress',
-    'robe_emerald',
-    'black_floral_dress',
-    'blue_corset_dress',
-    'purple_shine_dress',
-    'blue_dress',
-    'emerald',
-    'set_purple_diamond',
-    'black_naked_dress',
-  ];
+  const collectionTitles: { [key: string]: string } = {
+    moon_crystal: 'Moon Crystal',
+    christmas_song: 'Christmas Song',
+  };
 
-  const sortedProducts = products.sort(
-    (a, b) => customOrder.indexOf(a.slug) - customOrder.indexOf(b.slug)
-  );
+  const collectionOrders: { [key: string]: string[] } = {
+    moon_crystal: [
+      'mint_dress',
+      'robe_emerald',
+      'black_floral_dress',
+      'blue_corset_dress',
+      'purple_shine_dress',
+      'blue_dress',
+      'emerald',
+      'set_purple_diamond',
+      'black_naked_dress',
+    ],
+    christmas_song: ['blue_baloon_dress'],
+  };
+
+  const collectionTitle = collectionTitles[params.collectionId] || 'Коллекция';
+  const customOrder = collectionOrders[params.collectionId] || [];
+
+  const sortedProducts = products.sort((a, b) => {
+    const orderA = customOrder.indexOf(a.slug);
+    const orderB = customOrder.indexOf(b.slug);
+    if (orderA === -1) return 1; // Если продукта нет в customOrder, он уходит в конец
+    if (orderB === -1) return -1;
+    return orderA - orderB;
+  });
 
   return (
     <main className={styles.main}>
-      <h1 className={styles.title}>Moon crystal</h1>
+      <h1 className={styles.title}>{collectionTitle}</h1>
       <ProductList products={sortedProducts} />
     </main>
   );
