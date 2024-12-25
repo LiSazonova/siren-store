@@ -1,0 +1,126 @@
+/*!*******************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[12].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[12].oneOf[7].use[3]!./src/components/Icon/Icon.module.css ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************/
+.Icon_iconButton__yY2i9 {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: inherit;
+}
+
+.Icon_iconButton__yY2i9:hover {
+    color: #0070f3;
+}
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[12].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[12].oneOf[7].use[3]!./src/components/ProductCard/ProductCard.module.css ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************/
+.ProductCard_productCard__b2gMB {
+    overflow: hidden;
+    width: 292px;
+}
+
+.ProductCard_imageWrapper__U_9S0 {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+.ProductCard_productImage__JlVZo {
+    width: 100%;
+    object-fit: cover;
+}
+
+.ProductCard_addToCart__2v_VQ {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background-color: var(--white-color);
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.ProductCard_addToCart__2v_VQ img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ProductCard_productInfo__1Rbf6 {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+}
+
+.ProductCard_productName__AUazF {
+    font-family: var(--font-inter);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 21.78px;
+    text-align: left;
+}
+
+.ProductCard_productPrice__cZzeY {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 21.78px;
+    text-align: right;
+}
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[12].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[12].oneOf[7].use[3]!./src/components/ProductList/ProductList.module.css ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************/
+.ProductList_productsGrid__yyrc8 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 48px;
+    gap: 48px;
+    width: 100%;
+    max-width: 1228px;
+    justify-items: center;
+}
+
+@media screen and (min-width: 768px) {
+    .ProductList_productsGrid__yyrc8 {
+            gap: 48px 20px;
+        }
+}
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[12].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[12].oneOf[7].use[3]!./src/app/collections/[collectionId]/CollectionPage.module.css ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************/
+.CollectionPage_main__vyyEb {
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.CollectionPage_title__onFMS {
+    font-family: var(--font-lora);
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 81.92px;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--black-color);
+    margin-bottom: 24px;
+}
+
+@media screen and (min-width: 768px) {
+
+  .CollectionPage_main__vyyEb {
+    padding: 48px 20px;
+  }
+
+  .CollectionPage_title__onFMS  {
+      font-size: 64px;
+      margin-bottom: 48px;
+  }
+}

@@ -1,0 +1,17 @@
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.title {
+    font-family: var(--font-lora);
+    font-size: 64px;
+    font-weight: 400;
+    line-height: 81.92px;
+    text-align: center;
+    text-transform: uppercase;
+}

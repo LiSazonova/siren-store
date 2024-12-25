@@ -32,7 +32,7 @@ const Header: React.FC = () => {
   };
 
   const handleCartClick = () => {
-    router.push('/cart'); // Перейти на страницу корзины
+    router.push('/cart');
   };
 
   useEffect(() => {

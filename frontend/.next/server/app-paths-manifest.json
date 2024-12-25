@@ -1,13 +1,7 @@
 {
-  "/_not-found": "app/_not-found.js",
-  "/about/page": "app/about/page.js",
-  "/auth/forgot-password/page": "app/auth/forgot-password/page.js",
-  "/cart/page": "app/cart/page.js",
-  "/auth/register/page": "app/auth/register/page.js",
-  "/auth/login/page": "app/auth/login/page.js",
-  "/checkout/page": "app/checkout/page.js",
-  "/collections/[collectionId]/page": "app/collections/[collectionId]/page.js",
-  "/collections/page": "app/collections/page.js",
   "/page": "app/page.js",
+  "/not-found/page": "app/not-found/page.js",
+  "/collections/page": "app/collections/page.js",
+  "/collections/[collectionId]/page": "app/collections/[collectionId]/page.js",
   "/products/[slug]/page": "app/products/[slug]/page.js"
 }
