@@ -70,7 +70,7 @@ const LoginPage = () => {
             />
 
             <p className={styles.forgotPassword}>
-              <Link href="/auth/forgot-password">Забули пароль ?</Link>
+              {/* <Link href="/auth/forgot-password">Забули пароль ?</Link> */}
             </p>
 
             <button type="submit" className={styles.submitButton}>
