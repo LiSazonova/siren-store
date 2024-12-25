@@ -1,4 +1,3 @@
-// components/ProductList/ProductList.tsx
 import React from 'react';
 import ProductCard from '@/components/ProductCard/ProductCard';
 import styles from './ProductList.module.css';
@@ -19,7 +18,13 @@ const ProductList: React.FC<ProductListProps> = ({ products }) => {
   return (
     <div className={styles.productsGrid}>
       {products.map((product) => (
-        <ProductCard key={product.id} product={product} />
+        <ProductCard
+          key={product.id}
+          product={{
+            ...product,
+            price: Number(product.price),
+          }}
+        />
       ))}
     </div>
   );

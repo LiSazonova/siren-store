@@ -140,28 +140,50 @@
 }
 
 @media (min-width: 768px) {
+    .cartPage{
+        max-width: 728px;
+    }
     .header {
-        grid-template-columns: 150px 1fr 1fr 1fr auto;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: none;
     }
 
-    .cartItem {
-        grid-template-columns: 150px 1fr 1fr 1fr auto;
-    }
+        .title,
+        .size,
+        .quantity,
+        .price {
+            grid-column: auto;
+            grid-row: auto;
+            text-align: center;
+            /* Можно настроить под нужный стиль */
+        }
+    
+        .cartItem {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            /* Четыре колонки */
+            align-items: center;
+            gap: 10px;
+        }
+    
+        .title {
+            grid-column: 1;
+            /* Первая колонка */
+        }
+    
+        .size {
+            grid-column: 2;
+            /* Вторая колонка */
+        }
+    
+        .quantity {
+            grid-column: 3;
+            /* Третья колонка */
+        }
+    
+        .price {
+            grid-column: 4;
+            /* Четвертая колонка */
+        }
 
-    .imageWrapper {
-        width: 150px;
-        height: 150px;
-    }
-
-    .name {
-        font-size: 18px;
-    }
-
-    .price {
-        font-size: 18px;
-    }
-
-    .checkoutButton {
-        font-size: 20px;
-    }
 }
