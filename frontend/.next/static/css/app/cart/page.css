@@ -2,59 +2,169 @@
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[12].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[12].oneOf[7].use[3]!./src/app/cart/CartPage.module.css ***!
   \****************************************************************************************************************************************************************************************************************************************************************************/
 .CartPage_cartPage__vwWtz {
-    padding: 20px;
+    padding: 24px 0;
+    max-width: 328px;
+    margin: 0 auto;
+    font-family: 'Inter', sans-serif;
+}
+
+.CartPage_header__1VYtf {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, auto);
+    border-bottom: 1px solid var(--primary-color);
+}
+
+.CartPage_title__5m4EB,
+.CartPage_size__opyuR,
+.CartPage_quantity__qFWHM,
+.CartPage_price__RaHSI {
+    font-size: 18px;
+        font-weight: 400;
+        line-height: 21.78px;
+        text-transform: uppercase;
 }
 
 .CartPage_title__5m4EB {
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-.CartPage_table__ndUNs {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-}
-
-.CartPage_table__ndUNs th,
-.CartPage_table__ndUNs td {
-    border: 1px solid #ddd;
-    padding: 8px;
+    grid-column: 1;
+    grid-row: 1;
     text-align: left;
 }
 
-.CartPage_productInfo__yon0_ {
+.CartPage_size__opyuR {
+    grid-column: 2;
+    grid-row: 1;
+    text-align: right;
+}
+
+.CartPage_quantity__qFWHM {
+    grid-column: 2;
+    grid-row: 2;
+    text-align: right;
+}
+
+.CartPage_price__RaHSI {
+    grid-column: 2;
+    grid-row: 3;
+    text-align: right;
+}
+
+.CartPage_cartItems__jQM2p {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+}
+
+.CartPage_cartItem__5giNx {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--primary-color);
+    padding: 24px 0;
+}
+
+.CartPage_leftColumn__jAtDg {
+    display: flex;
+    flex-direction: column;
+}
+
+.CartPage_name__2ryEG {
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 21.78px;
+        text-align: left;
+        margin-bottom: 12px;
+}
+
+.CartPage_imageWrapper__rpGmm {
+    width: 188px;
+    height: 274px;
     cursor: pointer;
 }
 
-.CartPage_productImage__KY6Nk {
-    margin-right: 10px;
+.CartPage_image__ukPL0 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-.CartPage_select__urGvS {
-    padding: 5px;
+.CartPage_rightColumn__TnksP {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .CartPage_removeButton__npCOv {
+    align-self: flex-end;
     background: none;
     border: none;
+    font-size: 18px;
     cursor: pointer;
-    font-size: 16px;
 }
 
-.CartPage_orderSummary__Hdgv4 {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.CartPage_sizeSelector___Zp4p,
+.CartPage_quantityInput__eDSV6 {
+    width: 84px;
+    padding: 5px;
+    border: 1px solid var(--black-color);
+}
+
+.CartPage_rightColumn__TnksP .CartPage_price__RaHSI {
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 21.78px;
+}
+
+.CartPage_totalSection__TFoLU {
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+    margin-top: 22px;
+}
+
+.CartPage_totalLabel__cSuVd, .CartPage_totalAmount__wusrS {
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 20px;
+        text-align: left;
+    text-transform: uppercase;
 }
 
 .CartPage_checkoutButton__D4izq {
-    background-color: black;
-    color: white;
-    padding: 10px 20px;
+    display: block;
+        font-size: 24px;
+        line-height: 20px;
+    padding: 19px 4px;
+    background-color: var(--black-color);
+    color: var(--white-color);
+    text-align: center;
+    margin-top: 20px;
     cursor: pointer;
     border: none;
     text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+    .CartPage_header__1VYtf {
+        grid-template-columns: 150px 1fr 1fr 1fr auto;
+    }
+
+    .CartPage_cartItem__5giNx {
+        grid-template-columns: 150px 1fr 1fr 1fr auto;
+    }
+
+    .CartPage_imageWrapper__rpGmm {
+        width: 150px;
+        height: 150px;
+    }
+
+    .CartPage_name__2ryEG {
+        font-size: 18px;
+    }
+
+    .CartPage_price__RaHSI {
+        font-size: 18px;
+    }
+
+    .CartPage_checkoutButton__D4izq {
+        font-size: 20px;
+    }
 }
