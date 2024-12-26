@@ -70,7 +70,7 @@ import React, { useState } from 'react';
 import api from '@/lib/api';
 import { toast } from 'react-toastify';
 import Link from 'next/link';
-import styles from '@/app/auth/Auth.module.css';
+import styles from './ForgotPassword.module.css';
 
 const ForgotPasswordPage = () => {
   const [email, setEmail] = useState('');

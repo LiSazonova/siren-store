@@ -39,9 +39,9 @@
 /* RegistrationPage.module.css */
 
 .RegistrPage_auth__qgQ_4 {
-    background-color: var(--black-color);
     width: 100vw;
-    height: 100vh;
+        height: 100vh;
+    background-color: var(--black-color);
     padding: 24px 20px;
 }
 
@@ -81,66 +81,57 @@
 }
 
 .RegistrPage_authForm__vNX_W input {
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 24.2px;
+        text-align: left;
+
     width: 320px;
     height: 58px;
+        color: var(--black-color);
+        outline: none;
+    
     padding: 18px;
     margin-bottom: 24px;
-    border: 1px solid var(--primary-color);
-    border-radius: 4px;
-    background-color: transparent;
-    color: var(--white-color);
-    font-size: 18px;
-    outline: none;
-}
-
-.RegistrPage_authForm__vNX_W input:focus {
-    border-color: var(--white-color);
+    
 }
 
 .RegistrPage_authForm__vNX_W ::placeholder {
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 21.78px;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 21.78px;
+        text-align: left;
     color: var(--primary-color);
 }
 
 .RegistrPage_authForm__vNX_W button {
     font-family: var(--font-lora);
-    font-size: 24px;
-    font-weight: 400;
-    line-height: 20px;
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 20px;
     text-transform: uppercase;
     color: var(--white-color);
     text-align: center;
-    background-color: var(--primary-color);
-    border: none;
-    padding: 12px 24px;
     cursor: pointer;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-}
-
-.RegistrPage_authForm__vNX_W button:hover {
-    background-color: var(--white-color);
-    color: var(--black-color);
-}
-
-.RegistrPage_forgotPassword__MDc4m {
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 21.78px;
-    text-align: right;
-    color: var(--primary-color);
     margin-bottom: 24px;
-    cursor: pointer;
 }
 
-.RegistrPage_authDecoration__I0kTL {
-    max-width: 320px;
+.RegistrPage_authDecoration__I0kTL img {
+    width: 175px;
+    height: 290px;
+}
+
+.RegistrPage_authLink__zXtVu {
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 21.78px;
+        text-align: center;
+        color: var(--primary-color);
+        margin-bottom: 32px;
 }
 
 .RegistrPage_error__zfxtT {
-    color: var(--error-color);
+    color: var(--red-color);
     font-size: 16px;
     margin-bottom: 16px;
     text-align: center;
@@ -185,4 +176,54 @@
 
 .RegistrPage_closeModalButton__rJFjT:hover {
     background-color: var(--black-color);
+}
+
+@media screen and (min-width: 768px) {
+    .RegistrPage_authTitle__Hcduc {
+        font-size: 64px;
+        line-height: 81.92px;
+    }
+    
+    .RegistrPage_authForm__vNX_W {
+        width: 728px;
+    }
+
+    /* .authForm input {
+        width: 728px;
+    }
+    
+    .authForm label {
+        max-width: 728px;
+    } */
+
+    .RegistrPage_authForm__vNX_W button {
+            font-size: 28px;
+            font-weight: 400;
+            line-height: 20px;
+        margin-top: 24px;
+        margin-bottom: 38px;
+    }
+
+    .RegistrPage_authLink__zXtVu {
+        margin-bottom: 38px;
+    }
+
+    .RegistrPage_authDecoration__I0kTL img {
+            width: 350px;
+            height: 583px;
+        }
+    
+}
+
+@media screen and (min-width: 1228px) {
+    .RegistrPage_authContainer__AM589 {
+            flex-direction: row;
+            justify-content: center;
+            gap: 138px;
+        }
+
+                .RegistrPage_authForm__vNX_W {
+                    width: 401px;
+                }
+    
 }

@@ -1,0 +1,158 @@
+/*!***********************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[12].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[12].oneOf[7].use[3]!./src/app/auth/login/LoginPage.module.css ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************/
+.LoginPage_auth__bvUnk {
+    background-color: var(--black-color);
+    width: 100vw;
+    height: 100vh;
+    padding: 24px 20px;
+}
+
+.LoginPage_authContainer__xbBqU {
+    display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+}
+
+.LoginPage_authTitle__Sp77X {
+        font-family: var(--font-lora);
+        font-size: 40px;
+        font-weight: 400;
+        line-height: 51.2px;
+        text-align: center;
+        text-transform: uppercase;
+        color: var(--white-color);
+        margin-bottom: 24px;
+}
+
+.LoginPage_authForm__Q80WW {
+        display: flex;
+        flex-direction: column;
+        width: 320px;
+}
+
+.LoginPage_authForm__Q80WW label {
+        font-family: var(--font-inter);
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 21.78px;
+        text-align: left;
+        color: var(--white-color);
+        margin-bottom: 12px;
+        max-width: 320px;
+}
+
+.LoginPage_authForm__Q80WW input {
+font-size: 20px;
+        font-weight: 400;
+        line-height: 24.2px;
+        text-align: left;
+
+        width: 320px;
+        height: 58px;
+        color: var(--black-color);
+        outline: none;
+
+        padding: 18px;
+        margin-bottom: 24px;
+}
+
+.LoginPage_authForm__Q80WW input:last-child {
+        margin-bottom: 0;
+}
+
+.LoginPage_authForm__Q80WW ::placeholder {
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 21.78px;
+        color: var(--primary-color);
+}
+
+.LoginPage_authForm__Q80WW button {
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 20px;
+        text-transform: uppercase;
+        color: var(--white-color);
+        text-align: center;
+}
+
+.LoginPage_forgotPassword__fVD3U {
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 21.78px;
+        text-align: right;
+        color: var(--primary-color);
+        margin-bottom: 24px;
+}
+
+.LoginPage_authDecoration__pjgSX {
+    max-width: 290px;
+}
+
+.LoginPage_registerLink__rlqi3 {
+        display: none;
+}
+
+@media screen and (min-width: 768px) {
+.LoginPage_authForm__Q80WW {
+        width: 728px;
+}
+
+.LoginPage_authForm__Q80WW label {
+                max-width: 728px;
+}   
+
+.LoginPage_authTitle__Sp77X {
+        font-size: 64px;
+        line-height: 81.92px;
+        text-align: center;
+        margin-bottom: 48px;
+}
+
+.LoginPage_authForm__Q80WW button {
+        font-size: 28px;
+        line-height: 20px;        
+}
+
+.LoginPage_authDecoration__pjgSX {
+        max-width: 583px;
+}
+}
+
+@media screen and (min-width: 1228px) {
+        .LoginPage_authContainer__xbBqU {
+                flex-direction: row;
+                justify-content: center;
+                gap:138px;
+        }
+
+        .LoginPage_authForm__Q80WW {
+                width: 401px;
+        }
+
+        .LoginPage_authForm__Q80WW button {
+                margin-bottom: 38px;
+        }
+
+                .LoginPage_authDecoration__pjgSX {
+                        max-width: 583px;
+                }
+
+        .LoginPage_registerLink__rlqi3 {
+                display: block;
+                text-align: center;
+                        font-family: var(--font-inter);
+                        font-size: 18px;
+                        font-weight: 400;
+                        line-height: 21.78px;
+                        text-transform: uppercase;
+                color: var(--primary-color);
+                margin-bottom: 24px;
+        }
+
+
+
+        
+}
+

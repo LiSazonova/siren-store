@@ -70,12 +70,16 @@ const LoginPage = () => {
             />
 
             <p className={styles.forgotPassword}>
-              {/* <Link href="/auth/forgot-password">Забули пароль ?</Link> */}
+              <Link href="/auth/forgot-password">Забули пароль ?</Link>
             </p>
 
             <button type="submit" className={styles.submitButton}>
               УВІЙТИ
             </button>
+
+            <p className={styles.registerLink}>
+              <Link href="/auth/register">У МЕНЕ НЕМА ПРОФІЛЮ</Link>
+            </p>
           </form>
 
           {/* <div className={styles.googleLogin}>
@@ -85,10 +89,6 @@ const LoginPage = () => {
             onError={handleGoogleLoginError}
           /> */}
           {/* </div> */}
-
-          <p>
-            Нет аккаунта? <Link href="/auth/register">Зарегистрироваться</Link>
-          </p>
         </div>
       </div>
     </section>

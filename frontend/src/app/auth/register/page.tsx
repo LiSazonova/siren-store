@@ -1,112 +1,6 @@
-// 'use client';
-
-// import React, { useState, useContext } from 'react';
-// import { useRouter } from 'next/navigation';
-// import Link from 'next/link';
-// import styles from '@/app/auth/Auth.module.css';
-// import Modal from '@/components/Modal/Modal';
-// import { toast } from 'react-toastify';
-// import { useAuth } from '@/context/AuthContext';
-
-// const RegisterPage = () => {
-//   const { register, login } = useAuth();
-
-//   const { register } = useContext(AuthContext);
-//   const router = useRouter();
-
-//   const [form, setForm] = useState({
-//     username: '',
-//     email: '',
-//     password: '',
-//   });
-//   const [error, setError] = useState<string | null>(null);
-//   const [isModalOpen, setIsModalOpen] = useState(false);
-
-//   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
-//     setForm({ ...form, [e.target.name]: e.target.value });
-
-//   const handleSubmit = async (e: React.FormEvent) => {
-//     e.preventDefault();
-//     const result = await register(form.username, form.email, form.password);
-//     if (result.success) {
-//       router.push('/');
-//     } else {
-//       if (result.message.includes('email')) {
-//         setIsModalOpen(true);
-//       } else {
-//         setError(result.message);
-//       }
-//     }
-//   };
-
-//   return (
-//     <div className={styles.authContainer}>
-//       <h1>Регистрация</h1>
-//       {error && <p className={styles.error}>{error}</p>}
-//       <form onSubmit={handleSubmit} className={styles.authForm}>
-//         <label htmlFor="username">Имя пользователя:</label>
-//         <input
-//           type="text"
-//           name="username"
-//           id="username"
-//           value={form.username}
-//           onChange={handleChange}
-//           required
-//         />
-
-//         <label htmlFor="email">Email:</label>
-//         <input
-//           type="email"
-//           name="email"
-//           id="email"
-//           value={form.email}
-//           onChange={handleChange}
-//           required
-//         />
-
-//         <label htmlFor="password">Пароль:</label>
-//         <input
-//           type="password"
-//           name="password"
-//           id="password"
-//           value={form.password}
-//           onChange={handleChange}
-//           required
-//         />
-
-//         <button type="submit" className={styles.submitButton}>
-//           Зарегистрироваться
-//         </button>
-//       </form>
-//       <p>
-//         Уже есть аккаунт? <Link href="/auth/login">Войти</Link>
-//       </p>
-
-//       {/* Модальное Окно для Ошибки Регистрации */}
-//       <Modal
-//         isOpen={isModalOpen}
-//         onRequestClose={() => setIsModalOpen(false)}
-//         contentLabel="Ошибка Регистрации"
-//       >
-//         <h2>Ошибка Регистрации</h2>
-//         <p>Эта почта уже зарегистрирована.</p>
-//         <button
-//           onClick={() => setIsModalOpen(false)}
-//           className={styles.closeModalButton}
-//         >
-//           Закрыть
-//         </button>
-//       </Modal>
-//     </div>
-//   );
-// };
-
-// export default RegisterPage;
-
-// app/auth/register/page.tsx
 'use client';
 
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { useAuth } from '@/context/AuthContext';
@@ -122,8 +16,8 @@ const RegisterPage = () => {
     username: '',
     email: '',
     password: '',
-    number: '',
   });
+
   const [error, setError] = useState<string | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -132,15 +26,22 @@ const RegisterPage = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const result = await register(form.username, form.email, form.password);
-    if (result.success) {
-      router.push('/');
-    } else {
-      if (result.message.includes('email')) {
-        setIsModalOpen(true);
+    console.log('Данные для отправки:', form);
+
+    try {
+      const result = await register(form.username, form.email, form.password);
+
+      console.log('Результат регистрации:', result);
+
+      if (result.success) {
+        console.log('Перенаправление на главную'); // Лог перед переходом
+        router.push('/');
       } else {
         setError(result.message);
       }
+    } catch (error) {
+      console.error('Ошибка регистрации:', error);
+      setError('Ошибка регистрации. Попробуйте позже.');
     }
   };
 
@@ -155,60 +56,65 @@ const RegisterPage = () => {
             alt="Login Decoration"
           />
         </div>
-        <h1>РЕГІСТРАЦІЯ</h1>
-        {error && <p className={styles.error}>{error}</p>}
-        <form onSubmit={handleSubmit} className={styles.authForm}>
-          <label htmlFor="username">Будь ласка, введіть своє ім'я</label>
-          <input
-            type="text"
-            name="username"
-            id="username"
-            value={form.username}
-            onChange={handleChange}
-            placeholder="Ім'я"
-            required
-          />
-          <label htmlFor="email">
-            Будь ласка, введіть свою електронну адресу
-          </label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            value={form.email}
-            onChange={handleChange}
-            placeholder="Електронна адреса"
-            required
-          />
-          <label htmlFor="password">Будь ласка, введіть свій пароль</label>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            value={form.password}
-            onChange={handleChange}
-            placeholder="Пароль"
-            required
-          />
-          <label htmlFor="text">Будь ласка, введіть свою дату народження</label>
-          <input
-            type="number"
-            name="number"
-            id="number"
-            value={form.number}
-            onChange={handleChange}
-            placeholder="Дата народження"
-            required
-          />
-          <button type="submit" className={styles.submitButton}>
-            Зареєструватися
-          </button>
-        </form>
-        <p>
-          У МЕНЕ ВЖЕ Є ПРОФІЛЬ <Link href="/auth/login">Войти</Link>
-        </p>
+        <div>
+          <h1 className={styles.authTitle}>РЕЄСТРАЦІЯ</h1>
+          {error && <p className={styles.error}>{error}</p>}
+          <form onSubmit={handleSubmit} className={styles.authForm}>
+            <label htmlFor="username">Будь ласка, введіть своє ім'я</label>
+            <input
+              type="text"
+              name="username"
+              id="username"
+              value={form.username}
+              onChange={handleChange}
+              placeholder="Ім'я"
+              required
+            />
+            <label htmlFor="email">
+              Будь ласка, введіть свою електронну адресу
+            </label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              value={form.email}
+              onChange={handleChange}
+              placeholder="Електронна адреса"
+              required
+            />
+            <label htmlFor="password">Будь ласка, введіть свій пароль</label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              value={form.password}
+              onChange={handleChange}
+              placeholder="Пароль"
+              required
+            />
+            {/* <label htmlFor="birthdate">
+              Будь ласка, введіть свою дату народження
+            </label>
+            <input
+              type="text"
+              name="birthdate"
+              id="birthdate"
+              value={form.birthdate}
+              onChange={handleChange}
+              placeholder="Дата народження"
+              pattern="\d{2}\.\d{2}\.\d{4}" // Шаблон валидации даты
+              title="Введите дату в формате ДД.ММ.РРРР" // Подсказка
+              required
+            /> */}
+            <button type="submit" className={styles.submitButton}>
+              Зареєструватися
+            </button>
+          </form>
+          <p className={styles.authLink}>
+            <Link href="/auth/login">У МЕНЕ ВЖЕ Є ПРОФІЛЬ</Link>
+          </p>
+        </div>
 
-        {/* Модальное окно для ошибки регистрации */}
         <Modal
           isOpen={isModalOpen}
           onRequestClose={() => setIsModalOpen(false)}
