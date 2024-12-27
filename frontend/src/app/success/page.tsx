@@ -13,7 +13,7 @@ const SuccessPage = () => {
   }, []);
 
   const handleGoHome = () => {
-    router.push('/'); // Переход на главную страницу
+    router.push('/');
   };
 
   return (
