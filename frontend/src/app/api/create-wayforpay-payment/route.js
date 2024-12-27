@@ -13,12 +13,10 @@ export async function POST(req) {
         const orderDate = Math.floor(Date.now() / 1000);
         const currency = 'UAH';
 
-        // Данные о товарах
         const productName = cartItems.map((item) => item.name);
         const productPrice = cartItems.map((item) => Number(item.price));
         const productCount = cartItems.map((item) => Number(item.quantity));
 
-        // Подпись
         const signatureString = [
             merchantAccount,
             merchantDomainName,
