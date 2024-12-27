@@ -4,8 +4,11 @@ export async function POST(req) {
     try {
         const { cartItems, totalAmount, customer } = await req.json();
 
-        const merchantAccount = 'your_merchant_account';
-        const merchantDomainName = 'yourdomain.com';
+        const merchantAccount = process.env.MERCHANT_ACCOUNT;
+        const merchantDomainName = process.env.MERCHANT_DOMAIN_NAME;
+        const merchantKey = process.env.MERCHANT_SECRET_KEY;
+        const returnUrl = process.env.RETURN_URL;
+
         const orderReference = `ORDER-${Date.now()}`;
         const orderDate = Math.floor(Date.now() / 1000);
         const currency = 'UAH';
@@ -28,11 +31,13 @@ export async function POST(req) {
             ...productPrice,
         ].join(';');
 
-        const merchantKey = 'your_merchant_secret_key';
         const merchantSignature = crypto
             .createHash('sha1')
             .update(signatureString + merchantKey)
             .digest('hex');
+
+        console.log('Signature String:', signatureString);
+        console.log('Merchant Signature:', merchantSignature);
 
         const paymentData = {
             merchantAccount,
@@ -45,7 +50,7 @@ export async function POST(req) {
             productPrice,
             productCount,
             merchantSignature,
-            returnUrl: 'https://yourdomain.com/success',
+            returnUrl,
         };
 
         // Генерация URL

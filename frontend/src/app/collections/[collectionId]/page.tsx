@@ -71,7 +71,7 @@ const CollectionPage: React.FC<PageProps> = ({ params }) => {
       'set_purple_diamond',
       'black_naked_dress',
     ],
-    christmas_song: ['blue_baloon_dress'],
+    christmas_song: ['blue_baloon'],
   };
 
   const collectionTitle = collectionTitles[params.collectionId] || 'Коллекция';
