@@ -4,16 +4,31 @@ import { useCart } from '@/context/CartContext';
 import { useRouter } from 'next/navigation';
 import styles from './CartPage.module.css';
 import Image from 'next/image';
+import { useState, useEffect } from 'react';
 
 const CartPage = () => {
-  const { cartItems, removeCartItem } = useCart();
+  const { cartItems, removeCartItem, updateCartItem } = useCart();
   const router = useRouter();
+  const [localCartItems, setLocalCartItems] = useState(cartItems);
 
-  const totalAmount = cartItems.reduce((total, item) => {
+  useEffect(() => {
+    setLocalCartItems(cartItems);
+  }, [cartItems]);
+
+  const totalAmount = localCartItems.reduce((total, item) => {
     const price = Number(item.price) || 0;
     const quantity = Number(item.quantity) || 0;
     return total + price * quantity;
   }, 0);
+
+  const handleQuantityChange = (id: number, quantity: number) => {
+    if (quantity < 1) return;
+    const updatedItems = localCartItems.map((item) =>
+      item.id === id ? { ...item, quantity } : item
+    );
+    setLocalCartItems(updatedItems);
+    updateCartItem(id, quantity); // Обновляем глобальное состояние
+  };
 
   const handleNavigateToProduct = (slug: string) => {
     router.push(`/products/${slug}`);
@@ -23,7 +38,7 @@ const CartPage = () => {
     router.push('/checkout'); // Переход на страницу оформления заказа
   };
 
-  if (!cartItems.length) {
+  if (!localCartItems.length) {
     return <h1 className={styles.emptyCart}>Ничего не найдено</h1>;
   }
 
@@ -37,7 +52,7 @@ const CartPage = () => {
       </div>
 
       <div className={styles.cartItems}>
-        {cartItems.map((item) => (
+        {localCartItems.map((item) => (
           <div key={item.id} className={styles.cartItem}>
             {/* Левая колонка */}
             <div className={styles.leftColumn}>
@@ -73,8 +88,11 @@ const CartPage = () => {
               <input
                 className={styles.quantityInput}
                 type="number"
-                defaultValue={item.quantity}
+                value={item.quantity}
                 min="1"
+                onChange={(e) =>
+                  handleQuantityChange(item.id, Number(e.target.value))
+                }
               />
               <p className={styles.price}>
                 {Number(item.price) * Number(item.quantity)} грн

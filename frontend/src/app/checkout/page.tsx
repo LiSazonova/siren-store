@@ -3,10 +3,10 @@
 import { useCart } from '@/context/CartContext';
 import styles from './CheckoutPage.module.css';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const CheckoutPage = () => {
-  const { cartItems, removeCartItem } = useCart();
+  const { cartItems, removeCartItem, updateCartItem } = useCart();
 
   const [errors, setErrors] = useState({
     name: '',
@@ -17,13 +17,19 @@ const CheckoutPage = () => {
     payment: '',
   });
 
-  const totalAmount = cartItems.reduce((total, item) => {
+  const [localCartItems, setLocalCartItems] = useState(cartItems);
+
+  useEffect(() => {
+    setLocalCartItems(cartItems);
+  }, [cartItems]);
+
+  const totalAmount = localCartItems.reduce((total, item) => {
     const price = Number(item.price) || 0;
     const quantity = Number(item.quantity) || 0;
     return total + price * quantity;
   }, 0);
 
-  if (!cartItems.length) {
+  if (!localCartItems.length) {
     return <h1 className={styles.emptyCart}>Корзина пуста</h1>;
   }
 
@@ -80,7 +86,7 @@ const CheckoutPage = () => {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          cartItems,
+          cartItems: localCartItems,
           totalAmount,
           customer: customerData,
         }),
@@ -97,6 +103,15 @@ const CheckoutPage = () => {
       console.error('Error creating payment:', error);
       alert('Произошла ошибка. Попробуйте позже.');
     }
+  };
+
+  const handleQuantityChange = (id: number, quantity: number) => {
+    if (quantity < 1) return;
+    const updatedItems = localCartItems.map((item) =>
+      item.id === id ? { ...item, quantity } : item
+    );
+    setLocalCartItems(updatedItems);
+    updateCartItem(id, quantity);
   };
 
   return (
@@ -215,7 +230,7 @@ const CheckoutPage = () => {
             <div className={styles.price}>ВАРТІСТЬ</div>
           </div>
           <div className={styles.cartItems}>
-            {cartItems.map((item) => (
+            {localCartItems.map((item) => (
               <div key={item.id} className={styles.cartItem}>
                 {/* Левая колонка */}
                 <div className={styles.leftColumn}>
@@ -251,8 +266,11 @@ const CheckoutPage = () => {
                   <input
                     className={styles.quantityInput}
                     type="number"
-                    defaultValue={item.quantity}
+                    value={item.quantity}
                     min="1"
+                    onChange={(e) =>
+                      handleQuantityChange(item.id, Number(e.target.value))
+                    }
                   />
                   <p className={styles.price}>
                     {Number(item.price) * Number(item.quantity)} грн
