@@ -1,6 +1,6 @@
 'use client';
 
-import styles from './page.module.css';
+import styles from './SuccessPage.module.css';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 
