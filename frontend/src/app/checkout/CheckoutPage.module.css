@@ -1,39 +1,16 @@
 .checkoutPage {
-  padding: 20px;
-  max-width: 800px;
-  margin: 0 auto;
+  padding: 20px 0;
+    max-width: 320px;
+    margin: 0 auto;
 }
 
 .title {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-.cartItems {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.cartItem {
-  display: flex;
-  gap: 10px;
-  padding: 10px 0;
-  border-bottom: 1px solid #ccc;
-}
-
-.imageWrapper {
-  flex: 0 0 100px;
-  height: 100px;
-  overflow: hidden;
-}
-
-.image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 28px;
 }
 
 .details {
@@ -66,32 +43,183 @@
 }
 
 .form {
-  margin-top: 20px;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 24px;
 }
 
-.formTitle {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 10px;
+.label {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 21.78px;
+    text-align: left;
+    max-width: 300px;
 }
 
 .input {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 14px;
+  width: 100%;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 21.78px;
+    text-align: left;
+  padding: 18px;
+  border: 1px solid var(--primary-color);
+  margin-top: 12px;
 }
 
-.submitButton {
-  padding: 15px;
-  background-color: black;
-  color: white;
-  font-size: 16px;
-  font-weight: bold;
-  text-align: center;
-  border: none;
+.delivery, .payment {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.deliveryOption, .paymentOption {
+    display: flex;
+    gap: 10px;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 21.78px;
+}
+
+.deliveryInput, .paymentInput {
+    width: 24px;
+    height: 24px;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(3, auto);
+  border-bottom: 1px solid var(--primary-color);
+  margin-top: 8px;
+}
+
+.titleOrder,
+.size,
+.quantity,
+.price {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 21.78px;
+  text-transform: uppercase;
+}
+
+.titleOrder {
+  grid-column: 1;
+  grid-row: 1;
+  text-align: left;
+}
+
+.size {
+  grid-column: 2;
+  grid-row: 1;
+  text-align: right;
+}
+
+.quantity {
+  grid-column: 2;
+  grid-row: 2;
+  text-align: right;
+}
+
+.price {
+  grid-column: 2;
+  grid-row: 3;
+  text-align: right;
+}
+
+.cartItems {
+  display: flex;
+  flex-direction: column;
+}
+
+.cartItem {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--primary-color);
+  padding: 24px 0;
+}
+
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.name {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 21.78px;
+  text-align: left;
+  margin-bottom: 12px;
+}
+
+.imageWrapper {
+  width: 188px;
+  height: 274px;
   cursor: pointer;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.removeButton {
+  align-self: flex-end;
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.sizeSelector,
+.quantityInput {
+  width: 84px;
+  padding: 5px;
+  border: 1px solid var(--black-color);
+}
+
+.rightColumn .price {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 21.78px;
+}
+
+.totalSection {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.totalLabel,
+.totalAmount {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.paymentButton {
+  display: block;
+  width: 100%;
+    font-size: 24px;
+    line-height: 20px;
+    padding: 18px 4px;
+    background-color: var(--black-color);
+    color: var(--white-color);
+    text-align: center;
+    margin-top: 20px;
+    cursor: pointer;
+    border: none;
+    text-transform: uppercase;
 }

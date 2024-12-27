@@ -88,7 +88,7 @@ const CartPage = () => {
         <span className={styles.totalAmount}>{totalAmount} грн</span>
       </div>
       <button className={styles.checkoutButton} onClick={handleCheckout}>
-        ОФОРМИТЬ ЗАМОВЛЕННЯ
+        ОФОРМИТИ ЗАМОВЛЕННЯ
       </button>
     </main>
   );
