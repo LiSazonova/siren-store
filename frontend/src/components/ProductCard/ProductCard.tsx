@@ -120,6 +120,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           width={292}
           height={374}
           className={styles.productImage}
+          unoptimized
         />
         <button className={styles.addToCart} onClick={handleAddToCart}>
           <Icon name="basket" width={24} height={24} alt="Корзина" />

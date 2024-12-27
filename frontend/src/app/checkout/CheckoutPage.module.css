@@ -65,6 +65,7 @@
   padding: 18px;
   border: 1px solid var(--primary-color);
   margin-top: 12px;
+  outline: none;
 }
 
 .delivery, .payment {
@@ -212,7 +213,7 @@
 .paymentButton {
   display: block;
   width: 100%;
-    font-size: 24px;
+    font-size: 22px;
     line-height: 20px;
     padding: 18px 4px;
     background-color: var(--black-color);
@@ -223,3 +224,15 @@
     border: none;
     text-transform: uppercase;
 }
+
+
+  .error {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 21.78px;
+      text-align: left;
+      color: var(--red-color);
+      margin-top: 4px;
+      display: block;
+    }
+
