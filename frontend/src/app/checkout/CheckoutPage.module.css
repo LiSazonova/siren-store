@@ -210,7 +210,7 @@
   text-transform: uppercase;
 }
 
-.paymentButton {
+.paymentButton, .sendOrderButton {
   display: block;
   width: 100%;
     font-size: 22px;

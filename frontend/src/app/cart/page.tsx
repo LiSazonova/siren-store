@@ -101,13 +101,15 @@ const CartPage = () => {
           </div>
         ))}
       </div>
-      <div className={styles.totalSection}>
-        <span className={styles.totalLabel}>СУММА ЗАМОВЛЕННЯ:</span>
-        <span className={styles.totalAmount}>{totalAmount} грн</span>
+      <div className={styles.footer}>
+        <div className={styles.totalSection}>
+          <span className={styles.totalLabel}>СУММА ЗАМОВЛЕННЯ:</span>
+          <span className={styles.totalAmount}>{totalAmount} грн</span>
+        </div>
+        <button className={styles.checkoutButton} onClick={handleCheckout}>
+          ОФОРМИТИ ЗАМОВЛЕННЯ
+        </button>
       </div>
-      <button className={styles.checkoutButton} onClick={handleCheckout}>
-        ОФОРМИТИ ЗАМОВЛЕННЯ
-      </button>
     </main>
   );
 };

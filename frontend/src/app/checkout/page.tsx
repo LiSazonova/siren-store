@@ -4,6 +4,7 @@ import { useCart } from '@/context/CartContext';
 import styles from './CheckoutPage.module.css';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
+import { toast } from 'react-toastify';
 
 const CheckoutPage = () => {
   const { cartItems, removeCartItem, updateCartItem } = useCart();
@@ -11,6 +12,7 @@ const CheckoutPage = () => {
   const [errors, setErrors] = useState({
     name: '',
     email: '',
+    phone: '',
     country: '',
     address: '',
     delivery: '',
@@ -36,6 +38,7 @@ const CheckoutPage = () => {
   const validateForm = (customerData: {
     name: string;
     email: string;
+    phone: string;
     country: string;
     address: string;
     delivery: string;
@@ -46,6 +49,9 @@ const CheckoutPage = () => {
       email: customerData.email
         ? ''
         : 'Будь ласка, введіть свою електронну адресу.',
+      phone: customerData.phone
+        ? ''
+        : 'Будь ласка, введіть свій номер телефону.',
       country: customerData.country ? '' : 'Будь ласка, введіть свою країну.',
       address: customerData.address ? '' : 'Будь ласка, введіть свою адресу.',
       delivery: customerData.delivery
@@ -61,28 +67,77 @@ const CheckoutPage = () => {
     return Object.values(newErrors).every((error) => error === '');
   };
 
-  const handleOrderSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
+  // const handleOrderSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
+  //   e.preventDefault();
 
+  //   const form = document.querySelector('form');
+  //   if (!form) return;
+
+  //   const formData = new FormData(form);
+  //   const customerData = {
+  //     name: formData.get('name') as string,
+  //     email: formData.get('email') as string,
+  //     phone: formData.get('phone') as string,
+  //     country: formData.get('country') as string,
+  //     address: formData.get('address') as string,
+  //     delivery: formData.get('delivery') as string,
+  //     payment: formData.get('payment') as string,
+  //   };
+
+  //   if (!validateForm(customerData)) {
+  //     return;
+  //   }
+
+  //   try {
+  //     const response = await fetch('/api/create-wayforpay-payment', {
+  //       method: 'POST',
+  //       headers: { 'Content-Type': 'application/json' },
+  //       body: JSON.stringify({
+  //         cartItems: localCartItems,
+  //         totalAmount,
+  //         customer: customerData,
+  //       }),
+  //     });
+
+  //     const data = await response.json();
+
+  //     if (data.paymentUrl) {
+  //       window.location.href = data.paymentUrl; // Переход на страницу оплаты
+  //     } else {
+  //       alert('Ошибка при создании платежа. Попробуйте снова.');
+  //     }
+  //   } catch (error) {
+  //     console.error('Error creating payment:', error);
+  //     alert('Произошла ошибка. Попробуйте позже.');
+  //   }
+  // };
+
+  const handleSendOrder = async () => {
     const form = document.querySelector('form');
-    if (!form) return;
+    if (!form) {
+      toast.error('Не удалось найти форму.');
+      return;
+    }
 
-    const formData = new FormData(form);
+    const formData = new FormData(form); // Создаем объект FormData из формы
     const customerData = {
       name: formData.get('name') as string,
       email: formData.get('email') as string,
+      phone: formData.get('phone') as string,
       country: formData.get('country') as string,
-      address: formData.get('address') as string,
       delivery: formData.get('delivery') as string,
       payment: formData.get('payment') as string,
+      address: formData.get('address') as string,
     };
 
+    // Проверка на заполнение всех полей
     if (!validateForm(customerData)) {
+      toast.error('Будь ласка, заповніть усі обов’язкові поля.');
       return;
     }
 
     try {
-      const response = await fetch('/api/create-wayforpay-payment', {
+      const response = await fetch('/api/send-order', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -94,14 +149,16 @@ const CheckoutPage = () => {
 
       const data = await response.json();
 
-      if (data.paymentUrl) {
-        window.location.href = data.paymentUrl; // Переход на страницу оплаты
+      if (response.ok) {
+        toast.success(
+          'Ваше замовлення успішно відправлено! Ми зв’яжемося з вами для підтвердження.'
+        );
       } else {
-        alert('Ошибка при создании платежа. Попробуйте снова.');
+        toast.error('Помилка під час відправки замовлення: ' + data.message);
       }
     } catch (error) {
-      console.error('Error creating payment:', error);
-      alert('Произошла ошибка. Попробуйте позже.');
+      console.error('Error sending order:', error);
+      toast.error('Виникла помилка. Спробуйте пізніше.');
     }
   };
 
@@ -139,6 +196,17 @@ const CheckoutPage = () => {
             required
           />
           {errors.email && <span className={styles.error}>{errors.email}</span>}
+        </label>
+        <label className={styles.label}>
+          Будь ласка, введіть свій номер телефону:
+          <input
+            className={styles.input}
+            type="tel"
+            name="phone"
+            placeholder="Номер телефону"
+            required
+          />
+          {errors.phone && <span className={styles.error}>{errors.phone}</span>}
         </label>
         <label className={styles.label}>
           Будь ласка, введіть свою країну:
@@ -284,12 +352,19 @@ const CheckoutPage = () => {
           <span className={styles.totalLabel}>СУММА ЗАМОВЛЕННЯ:</span>
           <span className={styles.totalAmount}>{totalAmount} грн</span>
         </div>
-        <button
+        {/* <button
           className={styles.paymentButton}
           type="button"
           onClick={handleOrderSubmit}
         >
           ОФОРМИТИ ЗАМОВЛЕННЯ
+        </button> */}
+        <button
+          className={styles.sendOrderButton}
+          type="button"
+          onClick={handleSendOrder}
+        >
+          ВІДПРАВИТИ ЗАМОВЛЕННЯ
         </button>
       </form>
     </main>

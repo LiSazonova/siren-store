@@ -213,7 +213,7 @@
   text-transform: uppercase;
 }
 
-.CheckoutPage_paymentButton__vSuev {
+.CheckoutPage_paymentButton__vSuev, .CheckoutPage_sendOrderButton__RNZR1 {
   display: block;
   width: 100%;
     font-size: 22px;
