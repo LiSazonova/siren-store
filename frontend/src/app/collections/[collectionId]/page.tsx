@@ -14,9 +14,9 @@ interface Product {
 }
 
 async function fetchProducts(collectionSlug: string): Promise<Product[]> {
-  const res = await fetch(
-    `http://localhost:5000/api/products/${collectionSlug}`
-  );
+  const API_BASE_URL = 'https://siren-store.onrender.com';
+
+  const res = await fetch(`${API_BASE_URL}/collections/${collectionSlug}`);
 
   if (!res.ok) {
     throw new Error('Failed to fetch products');
