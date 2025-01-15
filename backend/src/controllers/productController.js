@@ -15,10 +15,13 @@ exports.getProductsByCollection = async (req, res) => {
     const { collectionSlug } = req.params;
 
     try {
+        // Найти продукты, связанные с коллекцией
         const products = await Product.find({ collection: collectionSlug });
+
         if (products.length === 0) {
             return res.status(404).json({ message: 'Продукты для данной коллекции не найдены' });
         }
+
         res.json(products);
     } catch (error) {
         res.status(500).json({ message: 'Ошибка получения продуктов', error });
