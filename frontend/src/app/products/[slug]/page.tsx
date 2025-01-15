@@ -133,7 +133,7 @@ const ProductPage: React.FC<{ params: { slug: string } }> = ({ params }) => {
           <p className={styles.price}>{product.price} грн</p>
           <p className={styles.description}>{product.description}</p>
           <div className={styles.sizes}>
-            <h3 className={styles.sizesTitle}>Розміри</h3>
+            <h3 className={styles.sizesTitle}>Sizes</h3>
             <div className={styles.sizeOptions}>
               {product.sizes.map((size) => (
                 <button
