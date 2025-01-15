@@ -29,11 +29,6 @@ async function fetchProduct(slug: string): Promise<Product> {
 
     const data = await res.json();
 
-    // Проверка наличия данных
-    if (!data || !data._id) {
-      throw new Error('Product not found');
-    }
-
     return {
       id: data._id,
       name: data.name,
@@ -41,7 +36,7 @@ async function fetchProduct(slug: string): Promise<Product> {
       price: Number(data.price),
       sizes: data.sizes || [],
       slug: data.slug,
-      image: data.image || `/images/products/${data.slug}/${data.slug}.jpg`, // Путь к изображению
+      image: data.image || `/images/products/${data.slug}/${data.slug}.jpg`,
     };
   } catch (error) {
     console.error('Error fetching product:', error);

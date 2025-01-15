@@ -28,6 +28,24 @@ exports.getProductsByCollection = async (req, res) => {
     }
 };
 
+exports.getProductBySlug = async (req, res) => {
+    const { slug } = req.params;
+
+    try {
+        // Найти продукт по slug
+        const product = await Product.findOne({ slug });
+
+        if (!product) {
+            return res.status(404).json({ message: 'Product not found' });
+        }
+
+        res.json(product);
+    } catch (error) {
+        console.error('Error fetching product:', error);
+        res.status(500).json({ message: 'Failed to fetch product', error });
+    }
+};
+
 // Создать новый продукт
 exports.createProduct = async (req, res) => {
     const { name, slug, price, description, image, collection } = req.body;

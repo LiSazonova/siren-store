@@ -8,7 +8,19 @@ app.listen(PORT, () => {
 
 const cors = require('cors');
 
+// Настройка CORS
+const allowedOrigins = [
+    'https://siren-store.vercel.app', // Продакшен-домен
+    'http://localhost:3000' // Локальная разработка
+];
+
 app.use(cors({
-    origin: 'https://siren-store.vercel.app',
+    origin: (origin, callback) => {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
     methods: 'GET,POST,PUT,DELETE',
 }));
