@@ -1,38 +1,24 @@
 {
-  "name": "my-project",
-  "version": "0.1.0",
-  "private": true,
-  "description": "A Strapi application",
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "src/server.js",
   "scripts": {
-    "build": "strapi build",
-    "deploy": "strapi deploy",
-    "develop": "strapi develop",
-    "start": "strapi start",
-    "strapi": "strapi"
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
   },
+  "keywords": [],
+  "author": "Lili Sazonova <lilissazonova@gmail.com>",
+  "license": "ISC",
+  "description": "",
   "dependencies": {
-    "@strapi/plugin-cloud": "5.5.0",
-    "@strapi/plugin-users-permissions": "5.5.0",
-    "@strapi/strapi": "5.5.0",
-    "better-sqlite3": "11.3.0",
-    "google-auth-library": "^9.15.0",
-    "pg": "^8.13.1",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "react-router-dom": "^6.0.0",
-    "styled-components": "^6.0.0"
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.9.4"
   },
   "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "typescript": "^5"
-  },
-  "engines": {
-    "node": "20.x",
-    "npm": ">=6.x"
-  },
-  "strapi": {
-    "uuid": "51a9951b-330e-446d-acc2-f1a9a6fdd25c"
+    "nodemon": "^3.1.9"
   }
 }

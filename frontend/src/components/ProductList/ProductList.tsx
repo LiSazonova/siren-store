@@ -6,25 +6,24 @@ interface Product {
   id: number;
   name: string;
   slug: string;
-  price: string;
+  price: number; // Цена как число
   description: string;
+  image: string;
 }
 
 interface ProductListProps {
-  products: Product[];
+  products: Product[]; // Список продуктов, включая 'image'
 }
 
 const ProductList: React.FC<ProductListProps> = ({ products }) => {
+  if (!products || products.length === 0) {
+    return <p className={styles.empty}>Нет доступных продуктов.</p>;
+  }
+
   return (
     <div className={styles.productsGrid}>
       {products.map((product) => (
-        <ProductCard
-          key={product.id}
-          product={{
-            ...product,
-            price: Number(product.price),
-          }}
-        />
+        <ProductCard key={product.id} product={product} />
       ))}
     </div>
   );

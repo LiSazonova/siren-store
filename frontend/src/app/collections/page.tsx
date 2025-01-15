@@ -8,12 +8,12 @@ export default function CollectionsPage() {
     {
       title: 'MOON CRYSTAL',
       image: '/images/products/moon_crystal.jpg',
-      href: '/collections/moon_crystal',
+      slug: 'moon_crystal', // Используем slug вместо href
     },
     {
       title: 'CHRISTMAS SONG',
       image: '/images/products/christmas_song.jpg',
-      href: '/collections/christmas_song',
+      slug: 'christmas_song', // Используем slug вместо href
     },
   ];
 
@@ -24,8 +24,8 @@ export default function CollectionsPage() {
           <h1 className={styles.title}>КОЛЕКЦІЇ</h1>
           <div className={styles.collections}>
             {collections.map((collection) => (
-              <div key={collection.title} className={styles.collection}>
-                <Link href={collection.href}>
+              <div key={collection.slug} className={styles.collection}>
+                <Link href={`/collections/${collection.slug}`}>
                   <Image
                     src={collection.image}
                     alt={collection.title}

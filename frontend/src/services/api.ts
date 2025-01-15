@@ -1,7 +1,5 @@
 export async function fetchProducts(collectionSlug: string) {
-  const res = await fetch(
-    `https://siren-store.onrender.com/api/products?filters[collection][slug][$eq]=${collectionSlug}&populate=*`
-  );
+  const res = await fetch(`http://localhost:5000/api/products/${collectionSlug}`);
 
   if (!res.ok) {
     throw new Error('Failed to fetch products');
@@ -9,17 +7,12 @@ export async function fetchProducts(collectionSlug: string) {
 
   const data = await res.json();
 
-  return data.data.map((product: any) => {
-    const image = product.images?.[0]?.url || '';
-    const imageUrl = image.startsWith('http') ? image : `https://siren-store.onrender.com${image}`;
-
-    return {
-      id: product.id,
-      name: product.name,
-      slug: product.slug,
-      price: product.price,
-      description: product.description,
-      image: imageUrl,
-    };
-  });
+  return data.map((product: any) => ({
+    id: product._id,
+    name: product.name,
+    slug: product.slug,
+    price: product.price,
+    description: product.description,
+    image: product.image,
+  }));
 }

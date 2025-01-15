@@ -6,6 +6,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ClientProviders from '@/components/ClientProviders/ClientProviders';
 import { CartProvider } from '@/context/CartContext';
+import { ProductProvider } from '@/context/ProductContext';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -55,24 +56,26 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${lora.variable} ${lobster.variable} ${kaushan.variable}`}
       >
-        <ClientProviders>
-          <CartProvider>
-            <Header />
-            {children}
-            <ToastContainer
-              position="top-right"
-              autoClose={3000}
-              hideProgressBar={false}
-              newestOnTop={true}
-              closeOnClick
-              rtl={false}
-              pauseOnFocusLoss
-              draggable
-              pauseOnHover
-              theme="colored"
-            />
-          </CartProvider>
-        </ClientProviders>
+        <ProductProvider>
+          <ClientProviders>
+            <CartProvider>
+              <Header />
+              {children}
+              <ToastContainer
+                position="top-right"
+                autoClose={3000}
+                hideProgressBar={false}
+                newestOnTop={true}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="colored"
+              />
+            </CartProvider>
+          </ClientProviders>
+        </ProductProvider>
       </body>
     </html>
   );

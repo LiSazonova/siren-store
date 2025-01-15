@@ -8,13 +8,14 @@ interface Product {
   id: number;
   name: string;
   slug: string;
-  price: string;
+  price: number; // Исправлено на number
   description: string;
+  image: string;
 }
 
 async function fetchProducts(collectionSlug: string): Promise<Product[]> {
   const res = await fetch(
-    `https://siren-store.onrender.com/api/products?filters[collection][slug][$eq]=${collectionSlug}&populate=*`
+    `http://localhost:5000/api/products/${collectionSlug}`
   );
 
   if (!res.ok) {
@@ -23,31 +24,37 @@ async function fetchProducts(collectionSlug: string): Promise<Product[]> {
 
   const data = await res.json();
 
-  return data.data.map((product: any) => ({
-    id: product.id,
+  return data.map((product: any) => ({
+    id: product._id,
     name: product.name,
     slug: product.slug,
     price: product.price,
     description: product.description,
+    image: product.image,
   }));
 }
 
 interface PageProps {
   params: {
-    collectionId: string;
+    collectionId: string; // `collectionId` здесь используется как slug
   };
 }
 
 const CollectionPage: React.FC<PageProps> = ({ params }) => {
   const [products, setProducts] = useState<Product[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     async function loadProducts() {
       try {
         const data = await fetchProducts(params.collectionId);
         setProducts(data);
-      } catch (error) {
-        console.error('Ошибка при загрузке продуктов', error);
+        setIsLoading(false);
+      } catch (err) {
+        console.error('Ошибка при загрузке продуктов:', err);
+        setError('Не удалось загрузить продукты. Попробуйте позже.');
+        setIsLoading(false);
       }
     }
 
@@ -71,7 +78,12 @@ const CollectionPage: React.FC<PageProps> = ({ params }) => {
       'set_purple_diamond',
       'black_naked_dress',
     ],
-    christmas_song: ['blue_baloon'],
+    christmas_song: [
+      'blue_baloon',
+      'white_corset_skirt_set',
+      'purple_corset_short_dress',
+      'white_dress_with_scarf',
+    ],
   };
 
   const collectionTitle = collectionTitles[params.collectionId] || 'Коллекция';
@@ -84,6 +96,14 @@ const CollectionPage: React.FC<PageProps> = ({ params }) => {
     if (orderB === -1) return -1;
     return orderA - orderB;
   });
+
+  if (isLoading) {
+    return <p>Загрузка продуктов...</p>;
+  }
+
+  if (error) {
+    return <p className={styles.error}>{error}</p>;
+  }
 
   return (
     <main className={styles.main}>

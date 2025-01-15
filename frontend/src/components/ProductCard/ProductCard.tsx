@@ -13,10 +13,11 @@ interface Product {
   slug: string;
   price: number;
   description: string;
+  image: string; // Убедитесь, что поле 'image' присутствует
 }
 
 interface ProductCardProps {
-  product: Product;
+  product: Product; // Полный объект продукта, включая 'image'
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
@@ -28,7 +29,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       id: product.id,
       name: product.name,
       price: product.price,
-      size: 'S', // Размер по умолчанию
+      size: 'S',
       quantity: 1,
       slug: product.slug,
     });
@@ -48,7 +49,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     >
       <div className={styles.imageWrapper}>
         <Image
-          src={`/images/products/${product.slug}/${product.slug}.jpg`}
+          src={product.image} // Используем путь изображения
           alt={product.name}
           width={292}
           height={374}
