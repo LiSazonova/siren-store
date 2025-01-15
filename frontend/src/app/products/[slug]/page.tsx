@@ -14,51 +14,67 @@ interface Product {
   price: number;
   sizes: string[];
   slug: string;
+  image: string; // Добавлено для хранения пути изображения
 }
 
 async function fetchProduct(slug: string): Promise<Product> {
-  const res = await fetch(
-    `https://siren-store.onrender.com/api/products?filters[slug][$eq]=${slug}&populate=*`
-  );
+  const API_BASE_URL = 'https://siren-store.onrender.com';
 
-  if (!res.ok) {
-    throw new Error('Failed to fetch product');
+  try {
+    const res = await fetch(`${API_BASE_URL}/products/${slug}`);
+
+    if (!res.ok) {
+      throw new Error(`Failed to fetch product: ${res.status}`);
+    }
+
+    const data = await res.json();
+
+    // Проверка наличия данных
+    if (!data || !data._id) {
+      throw new Error('Product not found');
+    }
+
+    return {
+      id: data._id,
+      name: data.name,
+      description: data.description,
+      price: Number(data.price),
+      sizes: data.sizes || [],
+      slug: data.slug,
+      image: data.image || `/images/products/${data.slug}/${data.slug}.jpg`, // Путь к изображению
+    };
+  } catch (error) {
+    console.error('Error fetching product:', error);
+    throw error;
   }
-
-  const data = await res.json();
-  const product = data.data[0];
-
-  return {
-    id: product.id,
-    name: product.name,
-    description: product.description,
-    price: Number(product.price),
-    sizes: product.sizes,
-    slug: product.slug,
-  };
 }
 
 const ProductPage: React.FC<{ params: { slug: string } }> = ({ params }) => {
   const [product, setProduct] = useState<Product | null>(null);
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
-  const { cartItems, addToCart } = useCart(); // Проверяем состояние корзины
+  const { cartItems, addToCart } = useCart(); // Использование состояния корзины
   const router = useRouter();
 
+  // Логирование содержимого корзины
   useEffect(() => {
-    console.log('Current cart items:', cartItems); // Отображаем содержимое корзины
+    console.log('Current cart items:', cartItems);
   }, [cartItems]);
 
+  // Загрузка данных продукта
   useEffect(() => {
     fetchProduct(params.slug)
       .then((data) => setProduct(data))
-      .catch((error) => console.error('Error fetching product:', error));
+      .catch((error) => {
+        console.error('Error fetching product:', error);
+        toast.error('Не вдалося завантажити продукт. Спробуйте пізніше.');
+        setProduct(null);
+      });
   }, [params.slug]);
 
+  // Проверка на отсутствие данных продукта
   if (!product) {
-    return <p>Loading...</p>;
+    return <p>Загрузка...</p>;
   }
-
-  const imagePath = `/images/products/${product.slug}/${product.slug}.jpg`;
 
   const handleSizeSelect = (size: string) => {
     setSelectedSize(size);
@@ -111,7 +127,7 @@ const ProductPage: React.FC<{ params: { slug: string } }> = ({ params }) => {
         <h1 className={styles.title}>{product.name}</h1>
         <div className={styles.imageWrapper}>
           <Image
-            src={imagePath}
+            src={product.image}
             alt={product.name}
             width={600}
             height={800}
@@ -122,7 +138,7 @@ const ProductPage: React.FC<{ params: { slug: string } }> = ({ params }) => {
           <p className={styles.price}>{product.price} грн</p>
           <p className={styles.description}>{product.description}</p>
           <div className={styles.sizes}>
-            <h3 className={styles.sizesTitle}>Sizes</h3>
+            <h3 className={styles.sizesTitle}>Розміри</h3>
             <div className={styles.sizeOptions}>
               {product.sizes.map((size) => (
                 <button
