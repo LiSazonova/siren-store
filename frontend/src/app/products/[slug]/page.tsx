@@ -6,6 +6,7 @@ import Image from 'next/image';
 import styles from './ProductPage.module.css';
 import { useCart } from '@/context/CartContext';
 import { toast } from 'react-toastify';
+import Loader from '@/components/Loader/Loader';
 
 interface Product {
   id: number;
@@ -68,7 +69,11 @@ const ProductPage: React.FC<{ params: { slug: string } }> = ({ params }) => {
 
   // Проверка на отсутствие данных продукта
   if (!product) {
-    return <p>Загрузка...</p>;
+    return (
+      <div className={styles.spinnerContainer}>
+        <Loader />
+      </div>
+    );
   }
 
   const handleSizeSelect = (size: string) => {

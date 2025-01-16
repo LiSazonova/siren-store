@@ -1,3 +1,41 @@
+/*!*************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[12].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[12].oneOf[7].use[3]!./src/components/Loading/Loading.module.css ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************/
+.Loading_spinner__nyZZa {
+    width: 60px;
+    height: 60px;
+    position: relative;
+    margin: 0 auto;
+}
+
+.Loading_doubleBounce1__FWw2_,
+.Loading_doubleBounce2__A3b1P {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    opacity: 0.6;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: Loading_bounce__6Y2X5 2s infinite ease-in-out;
+}
+
+.Loading_doubleBounce2__A3b1P {
+    animation-delay: -1s;
+}
+
+@keyframes Loading_bounce__6Y2X5 {
+
+    0%,
+    100% {
+        transform: scale(0);
+    }
+
+    50% {
+        transform: scale(1);
+    }
+}
 /*!******************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[12].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[12].oneOf[7].use[3]!./src/app/products/[slug]/ProductPage.module.css ***!
   \******************************************************************************************************************************************************************************************************************************************************************************************/
@@ -369,6 +407,14 @@
 .ProductPage_addToCartButton__ZLcMQ:hover {
     background-color: #000;
     color: #fff;
+}
+
+.ProductPage_spinnerContainer__6aToo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* Центрируем спиннер по вертикали */
 }
 
 /* Планшетная версия */

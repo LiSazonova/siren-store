@@ -367,6 +367,14 @@
     color: #fff;
 }
 
+.spinnerContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* Центрируем спиннер по вертикали */
+}
+
 /* Планшетная версия */
 @media (min-width: 768px) {
     .container {
