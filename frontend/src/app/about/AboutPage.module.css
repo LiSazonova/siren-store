@@ -11,13 +11,13 @@
 }
 
 .title {
-        font-family: var(--font-lora);
-        font-size: 40px;
-        font-weight: 400;
-        line-height: 51.2px;
-        text-align: center;
-        text-transform: uppercase;
-        margin-bottom: 34px;
+    font-family: var(--font-lora);
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 51.2px;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 34px;
 }
 
 .aboutContent {
@@ -33,13 +33,13 @@
     height: 482px;
 }
 
-.aboutText{
-        font-family: var(--font-inter);
-        font-size: 18px;
-        font-weight: 400;
-        line-height: 21.78px;
-        text-align: left;
-        margin-bottom: 24px;
+.aboutText {
+    font-family: var(--font-inter);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 21.78px;
+    text-align: left;
+    margin-bottom: 24px;
 }
 
 .aboutText:last-child {
@@ -48,7 +48,7 @@
 
 .illustration {
     margin-top: -50px;
-        text-align: right;
+    text-align: right;
 }
 
 .illustration img {
@@ -62,10 +62,10 @@
     }
 
     .title {
-            font-size: 64px;
-            line-height: 81.92px;
-            text-align: center;
-            margin-bottom: 48px;
+        font-size: 64px;
+        line-height: 81.92px;
+        text-align: center;
+        margin-bottom: 48px;
     }
 
     .aboutContent {
@@ -83,17 +83,17 @@
         max-width: 355px;
     }
 
-        .illustration {
-            position: relative;
-        }
+    .illustration {
+        position: relative;
+    }
 
-        .illustration img {
-            position: absolute;
-                top: -380px;
-                    left: 190px;
-                width: 184px;
-                height: 253px;
-        }
+    .illustration img {
+        position: absolute;
+        top: -380px;
+        left: 190px;
+        width: 184px;
+        height: 253px;
+    }
 }
 
 @media screen and (min-width: 1228px) {
@@ -116,7 +116,7 @@
 
     .illustration img {
         top: -190px;
-            left: auto;
-            right: 0;
+        left: auto;
+        right: 0;
     }
 }

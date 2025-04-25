@@ -46,6 +46,7 @@
   border: none;
   background-color: var(--black-color);
   color: var(--white-color);
+  margin-top: 46px;
 }
 
 .hero__decorContainer {

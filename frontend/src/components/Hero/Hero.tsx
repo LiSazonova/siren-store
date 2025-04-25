@@ -3,8 +3,9 @@
 import React from 'react';
 import styles from './Hero.module.css';
 import Link from 'next/link';
-import Slider from '../Slider/Slider';
+// import Slider from '../Slider/Slider';
 import Image from 'next/image';
+import EmblaCarousel from '../Slider/EmblaCarousel';
 const Hero: React.FC = () => {
   return (
     <section className={styles.hero}>
@@ -23,7 +24,7 @@ const Hero: React.FC = () => {
         </div>
       </div>
 
-      <Slider />
+      <EmblaCarousel />
 
       <div className={styles.container}>
         <Link href="/collections">

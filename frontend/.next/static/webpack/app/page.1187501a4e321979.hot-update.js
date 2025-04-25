@@ -1,0 +1,21 @@
+/*
+ * ATTENTION: An "eval-source-map" devtool has been used.
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+self["webpackHotUpdate_N_E"]("app/page",{
+
+/***/ "(app-pages-browser)/./src/components/Slider/Slider.module.css":
+/*!*************************************************!*\
+  !*** ./src/components/Slider/Slider.module.css ***!
+  \*************************************************/
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+eval(__webpack_require__.ts("// extracted by mini-css-extract-plugin\nmodule.exports = {\"embla\":\"Slider_embla__qhuQp\",\"embla__viewport\":\"Slider_embla__viewport__OBKJX\",\"embla__container\":\"Slider_embla__container__Hq8Z7\",\"embla__slide\":\"Slider_embla__slide__ILHIJ\",\"embla__slide__img\":\"Slider_embla__slide__img__acGW3\",\"embla__controls\":\"Slider_embla__controls__QFxHu\",\"embla__buttons\":\"Slider_embla__buttons__mDiz_\",\"embla__button\":\"Slider_embla__button__7RAgn\",\"embla__button__svg\":\"Slider_embla__button__svg__VFeox\",\"embla__dots\":\"Slider_embla__dots__WsBks\",\"embla__dot\":\"Slider_embla__dot__5idtk\",\"embla__dot--selected\":\"Slider_embla__dot--selected__qmP_4\"};\n    if(true) {\n      // 1745592464446\n      var cssReload = __webpack_require__(/*! ./node_modules/next/dist/compiled/mini-css-extract-plugin/hmr/hotModuleReplacement.js */ \"(app-pages-browser)/./node_modules/next/dist/compiled/mini-css-extract-plugin/hmr/hotModuleReplacement.js\")(module.id, {\"publicPath\":\"/_next/\",\"esModule\":false,\"locals\":true});\n      module.hot.dispose(cssReload);\n      \n    }\n  \nmodule.exports.__checksum = \"537884447fd9\"\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKGFwcC1wYWdlcy1icm93c2VyKS8uL3NyYy9jb21wb25lbnRzL1NsaWRlci9TbGlkZXIubW9kdWxlLmNzcyIsIm1hcHBpbmdzIjoiQUFBQTtBQUNBLGtCQUFrQjtBQUNsQixPQUFPLElBQVU7QUFDakI7QUFDQSxzQkFBc0IsbUJBQU8sQ0FBQyx3TUFBOEgsY0FBYyxzREFBc0Q7QUFDaE8sTUFBTSxVQUFVO0FBQ2hCO0FBQ0E7QUFDQTtBQUNBLHlCQUF5QiIsInNvdXJjZXMiOlsid2VicGFjazovL19OX0UvLi9zcmMvY29tcG9uZW50cy9TbGlkZXIvU2xpZGVyLm1vZHVsZS5jc3M/Zjc4NSJdLCJzb3VyY2VzQ29udGVudCI6WyIvLyBleHRyYWN0ZWQgYnkgbWluaS1jc3MtZXh0cmFjdC1wbHVnaW5cbm1vZHVsZS5leHBvcnRzID0ge1wiZW1ibGFcIjpcIlNsaWRlcl9lbWJsYV9fcWh1UXBcIixcImVtYmxhX192aWV3cG9ydFwiOlwiU2xpZGVyX2VtYmxhX192aWV3cG9ydF9fT0JLSlhcIixcImVtYmxhX19jb250YWluZXJcIjpcIlNsaWRlcl9lbWJsYV9fY29udGFpbmVyX19IcThaN1wiLFwiZW1ibGFfX3NsaWRlXCI6XCJTbGlkZXJfZW1ibGFfX3NsaWRlX19JTEhJSlwiLFwiZW1ibGFfX3NsaWRlX19pbWdcIjpcIlNsaWRlcl9lbWJsYV9fc2xpZGVfX2ltZ19fYWNHVzNcIixcImVtYmxhX19jb250cm9sc1wiOlwiU2xpZGVyX2VtYmxhX19jb250cm9sc19fUUZ4SHVcIixcImVtYmxhX19idXR0b25zXCI6XCJTbGlkZXJfZW1ibGFfX2J1dHRvbnNfX21EaXpfXCIsXCJlbWJsYV9fYnV0dG9uXCI6XCJTbGlkZXJfZW1ibGFfX2J1dHRvbl9fN1JBZ25cIixcImVtYmxhX19idXR0b25fX3N2Z1wiOlwiU2xpZGVyX2VtYmxhX19idXR0b25fX3N2Z19fVkZlb3hcIixcImVtYmxhX19kb3RzXCI6XCJTbGlkZXJfZW1ibGFfX2RvdHNfX1dzQmtzXCIsXCJlbWJsYV9fZG90XCI6XCJTbGlkZXJfZW1ibGFfX2RvdF9fNWlkdGtcIixcImVtYmxhX19kb3QtLXNlbGVjdGVkXCI6XCJTbGlkZXJfZW1ibGFfX2RvdC0tc2VsZWN0ZWRfX3FtUF80XCJ9O1xuICAgIGlmKG1vZHVsZS5ob3QpIHtcbiAgICAgIC8vIDE3NDU1OTI0NjQ0NDZcbiAgICAgIHZhciBjc3NSZWxvYWQgPSByZXF1aXJlKFwiL1VzZXJzL21hY2Jvb2svV29yay9zaXJlbi1zdG9yZS9mcm9udGVuZC9ub2RlX21vZHVsZXMvbmV4dC9kaXN0L2NvbXBpbGVkL21pbmktY3NzLWV4dHJhY3QtcGx1Z2luL2htci9ob3RNb2R1bGVSZXBsYWNlbWVudC5qc1wiKShtb2R1bGUuaWQsIHtcInB1YmxpY1BhdGhcIjpcIi9fbmV4dC9cIixcImVzTW9kdWxlXCI6ZmFsc2UsXCJsb2NhbHNcIjp0cnVlfSk7XG4gICAgICBtb2R1bGUuaG90LmRpc3Bvc2UoY3NzUmVsb2FkKTtcbiAgICAgIFxuICAgIH1cbiAgXG5tb2R1bGUuZXhwb3J0cy5fX2NoZWNrc3VtID0gXCI1Mzc4ODQ0NDdmZDlcIlxuIl0sIm5hbWVzIjpbXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///(app-pages-browser)/./src/components/Slider/Slider.module.css\n"));
+
+/***/ })
+
+});
