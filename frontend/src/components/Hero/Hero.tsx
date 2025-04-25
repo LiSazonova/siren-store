@@ -12,7 +12,7 @@ const Hero: React.FC = () => {
       <div className={styles.container}>
         <p className={styles.hero__subtitle}>нова</p>
         <h1 className={styles.hero__title}>КОЛЕКЦІЯ</h1>
-        <p className={styles.hero__subtitle_bottom}>moon crystal</p>
+        <p className={styles.hero__subtitle_bottom}>La fleur</p>
 
         <div className={styles.hero__textContainer}>
           <p className={styles.hero__subtext_left}>
