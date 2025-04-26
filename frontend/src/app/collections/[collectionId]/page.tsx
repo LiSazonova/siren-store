@@ -171,6 +171,7 @@ const CollectionPage: React.FC<PageProps> = ({ params }) => {
   const collectionTitles: { [key: string]: string } = {
     moon_crystal: 'Moon Crystal',
     christmas_song: 'Christmas Song',
+    sleeping_beauty: 'Sleeping Beauty',
   };
 
   const collectionOrders: { [key: string]: string[] } = {
@@ -190,6 +191,12 @@ const CollectionPage: React.FC<PageProps> = ({ params }) => {
       'white_corset_skirt_set',
       'purple_corset_short_dress',
       'white_dress_with_scarf',
+    ],
+    sleeping_beauty: [
+      'pink_romper',
+      'bodysuit_maleficent',
+      'night_dream_sweet_dream',
+      'night_dream_fabulous_night',
     ],
   };
 

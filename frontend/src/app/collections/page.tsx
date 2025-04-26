@@ -15,6 +15,11 @@ export default function CollectionsPage() {
       image: '/images/products/christmas_song.jpg',
       slug: 'christmas_song', // Используем slug вместо href
     },
+    {
+      title: 'SLEEPING BEAUTY',
+      image: '/images/products/sleeping_beauty.jpg',
+      slug: 'sleeping_beauty', // Используем slug вместо href
+    },
   ];
 
   return (

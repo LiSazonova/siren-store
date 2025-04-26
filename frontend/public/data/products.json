@@ -115,5 +115,41 @@
     "sizes": ["S", "M", "L", "XL"],
     "image": "/images/products/white_dress_with_scarf/white_dress_with_scarf.jpg",
     "collection": "christmas_song"
+  },
+  {
+    "name": "Pink romper with flowers 'Aurora'",
+    "slug": "pink_romper",
+    "price": 6200,
+    "description": "Цей прекрасний комбінезон сплячої красуні виконаний у ніжно-рожевому кольорі та прикрашений милими квіточками, створюючи образ вишуканого та затишного спального одягу із магічною накидкою.",
+    "sizes": ["S", "M", "L", "XL"],
+    "image": "/images/products/pink_romper/pink_romper_1.jpg",
+    "collection": "sleeping_beauty"
+  },
+  {
+    "name": "Bodysuit “Maleficent“ with skirt",
+    "slug": "bodysuit_maleficent",
+    "price": 5500,
+    "description": "Гіпюрове фіолетове боді зі спідницею в стилі Малефісенти - це елегантне і загадкове поєднання, яке підкреслить вашу індивідуальність і стиль. Боді виконано з ніжного гіпюру фіолетового кольору, який створює повітряний і витончений образ. Спідниця в стилі Малефісенти додає загадковості й таємничості вашому вигляду, підкреслюючи вашу привабливість.",
+    "sizes": ["S", "M", "L", "XL"],
+    "image": "/images/products/bodysuit_maleficent/bodysuit_maleficent_1.jpg",
+    "collection": "sleeping_beauty"
+  },
+  {
+    "name": "Night dress “Sweet dream“ ",
+    "slug": "night_dream_sweet_dream",
+    "price": 6700,
+    "description": "Лілова ночнушка з аплікацією в стилі сплячої красуні - це ніжна та романтична спідня білизна, яка створює образ витонченої та загадкової жінки. Ночнушка виконана з матеріалу лілового кольору, який надає їй вишуканості та жіночності.",
+    "sizes": ["S", "M", "L", "XL"],
+    "image": "/images/products/night_dream_sweet_dream/night_dream_1.jpg",
+    "collection": "sleeping_beauty"
+  },
+  {
+    "name": "Night dress “Fabulous night” ",
+    "slug": "night_dream_fabulous_night",
+    "price": 5500,
+    "description": "Елегантна малинова з мережива ночна сорочка натхненна стилем Малефісенти. Ідеальний вибір для тих, хто цінує комфорт і бажає відчути себе неповторною в будь-який час доби. Пориньте у світ таємничості та елегантності з цією вишуканою нічною сорочкою.",
+    "sizes": ["S", "M", "L", "XL"],
+    "image": "/images/products/night_dream_fabulous_night/fabulous_night_1.jpg",
+    "collection": "sleeping_beauty"
   }
 ]
