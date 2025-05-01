@@ -162,13 +162,13 @@ const CheckoutPage = () => {
     }
   };
 
-  const handleQuantityChange = (id: number, quantity: number) => {
+  const handleQuantityChange = (slug: string, quantity: number) => {
     if (quantity < 1) return;
     const updatedItems = localCartItems.map((item) =>
-      item.id === id ? { ...item, quantity } : item
+      item.slug === slug ? { ...item, quantity } : item
     );
     setLocalCartItems(updatedItems);
-    updateCartItem(id, quantity);
+    updateCartItem(slug, quantity);
   };
 
   return (

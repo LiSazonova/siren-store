@@ -63,7 +63,6 @@ import styles from './Collections.module.css';
 import { fetchCollections } from '@/services/firebase';
 
 interface Collection {
-  id: string;
   title: string;
   image: string;
   slug: string;

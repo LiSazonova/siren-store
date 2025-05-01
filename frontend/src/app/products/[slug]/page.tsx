@@ -30,12 +30,12 @@ const ProductPage: React.FC<{ params: { slug: string } }> = ({ params }) => {
         const data = docSnap.data();
 
         setProduct({
-          id: docSnap.id,
           name: data.name,
           description: data.description,
           price: data.price,
           sizes: data.sizes || [],
           slug: data.slug,
+          imageTitle: data.imageTitle,
           images: data.images || [],
         });
       } catch (error) {
@@ -64,12 +64,12 @@ const ProductPage: React.FC<{ params: { slug: string } }> = ({ params }) => {
       return;
     }
     addToCart({
-      id: product.id,
+      id: product.slug,
+      slug: product.slug,
       name: product.name,
       price: product.price,
       size: selectedSize,
       quantity: 1,
-      slug: product.slug,
     });
     router.push('/cart');
   };
@@ -80,17 +80,17 @@ const ProductPage: React.FC<{ params: { slug: string } }> = ({ params }) => {
       return;
     }
     addToCart({
-      id: product.id,
+      id: product.slug, // Используем slug как id
+      slug: product.slug,
       name: product.name,
       price: product.price,
       size: selectedSize,
       quantity: 1,
-      slug: product.slug,
     });
     toast.success(`${product.name} додано у корзину!`);
   };
 
-  const productImage = product.images[0] || '/images/placeholder.jpg';
+  const productImage = product.imageTitle || '/images/placeholder.jpg';
 
   return (
     <main className={styles.productPage}>
