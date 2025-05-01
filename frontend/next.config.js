@@ -4,7 +4,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['siren-store.vercel.app'],
+    domains: ['res.cloudinary.com'],
   },
   env: {
     MERCHANT_ACCOUNT: process.env.MERCHANT_ACCOUNT,

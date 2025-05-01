@@ -6,15 +6,7 @@ import Icon from '@/components/Icon/Icon';
 import styles from './ProductCard.module.css';
 import { useCart } from '@/context/CartContext';
 import { toast } from 'react-toastify';
-
-interface Product {
-  id: number;
-  name: string;
-  slug: string;
-  price: number;
-  description: string;
-  image: string; // Убедитесь, что поле 'image' присутствует
-}
+import type { Product } from '@/services/firebase';
 
 interface ProductCardProps {
   product: Product; // Полный объект продукта, включая 'image'
@@ -26,7 +18,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const handleAddToCart = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
     addToCart({
-      id: product.id,
+      id: product.slug,
       name: product.name,
       price: product.price,
       size: 'S',
@@ -49,7 +41,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     >
       <div className={styles.imageWrapper}>
         <Image
-          src={product.image} // Используем путь изображения
+          src={product.imageTitle} // Используем путь изображения
           alt={product.name}
           width={292}
           height={374}
