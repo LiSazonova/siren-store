@@ -21,13 +21,13 @@ const CartPage = () => {
     return total + price * quantity;
   }, 0);
 
-  const handleQuantityChange = (id: number, quantity: number) => {
+  const handleQuantityChange = (slug: string, quantity: number) => {
     if (quantity < 1) return;
     const updatedItems = localCartItems.map((item) =>
-      item.id === id ? { ...item, quantity } : item
+      item.slug === slug ? { ...item, quantity } : item
     );
     setLocalCartItems(updatedItems);
-    updateCartItem(id, quantity); // Обновляем глобальное состояние
+    updateCartItem(slug, quantity); // Обновляем глобальное состояние
   };
 
   const handleNavigateToProduct = (slug: string) => {
@@ -39,7 +39,7 @@ const CartPage = () => {
   };
 
   if (!localCartItems.length) {
-    return <h1 className={styles.emptyCart}>Ничего не найдено</h1>;
+    return <h1 className={styles.emptyCart}>Ничого не знайдено</h1>;
   }
 
   return (
@@ -53,7 +53,7 @@ const CartPage = () => {
 
       <div className={styles.cartItems}>
         {localCartItems.map((item) => (
-          <div key={item.id} className={styles.cartItem}>
+          <div key={item.slug} className={styles.cartItem}>
             {/* Левая колонка */}
             <div className={styles.leftColumn}>
               <h2 className={styles.name}>{item.name}</h2>
@@ -75,7 +75,7 @@ const CartPage = () => {
             <div className={styles.rightColumn}>
               <button
                 className={styles.removeButton}
-                onClick={() => removeCartItem(item.id)}
+                onClick={() => removeCartItem(item.slug)} // Используем slug вместо id
               >
                 ✕
               </button>
@@ -88,10 +88,10 @@ const CartPage = () => {
               <input
                 className={styles.quantityInput}
                 type="number"
-                value={item.quantity}
+                value={item.quantity} // Сохраняем количество товара
                 min="1"
-                onChange={(e) =>
-                  handleQuantityChange(item.id, Number(e.target.value))
+                onChange={
+                  (e) => handleQuantityChange(item.slug, Number(e.target.value)) // передаем slug вместо id
                 }
               />
               <p className={styles.price}>
